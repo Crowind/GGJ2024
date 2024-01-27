@@ -13,6 +13,3 @@ autoplay = "idle_down"
 [node name="CharacterStats" parent="." index="4"]
 humor = 1
 movement_speed = 1
-
-[node name="LaughParticles" parent="." index="7"]
-visible = true

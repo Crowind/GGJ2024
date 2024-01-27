@@ -15,6 +15,3 @@ frame_progress = 0.689456
 min_happiness = 2.0
 max_happiness = 3.0
 movement_speed = 2
-
-[node name="LaughParticles" parent="." index="7"]
-visible = true

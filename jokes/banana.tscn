@@ -1,22 +1,78 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqlu5pp2w7853"]
+[gd_scene load_steps=11 format=3 uid="uid://bqlu5pp2w7853"]
 
 [ext_resource type="PackedScene" uid="uid://c11p23vtdxl1o" path="res://jokes/base_joke.tscn" id="1_8rf84"]
-[ext_resource type="Texture2D" uid="uid://b0qy6hlyhpdev" path="res://gfx/temp/banana.png" id="2_ui5e1"]
+[ext_resource type="Texture2D" uid="uid://ck3fwmjwg2ear" path="res://gfx/assets/Tile_actions.png" id="2_abof8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx5oq"]
+atlas = ExtResource("2_abof8")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbbd0"]
+atlas = ExtResource("2_abof8")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v61f"]
+atlas = ExtResource("2_abof8")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ymlu"]
+atlas = ExtResource("2_abof8")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nojyy"]
+atlas = ExtResource("2_abof8")
+region = Rect2(96, 128, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bu83j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ui5e1")
+"texture": SubResource("AtlasTexture_mx5oq")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbbd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v61f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ymlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nojyy")
+}],
+"loop": false,
+"name": &"triggered",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ol3kw"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cn25x"]
+radius = 28.0713
 
 [node name="Banana" instance=ExtResource("1_8rf84")]
 animation_to_play = "slide_on_banana"
 happiness_to_add = 10.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(3, -13)
 sprite_frames = SubResource("SpriteFrames_bu83j")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="EffectCollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_ol3kw")
+
+[node name="LaughArea" parent="." index="2"]
+metadata/_edit_lock_ = true
+
+[node name="LaughCollisionShape2D" parent="LaughArea" index="0"]
+shape = SubResource("CircleShape2D_cn25x")
+metadata/_edit_lock_ = true
