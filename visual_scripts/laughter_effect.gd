@@ -11,15 +11,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (activation_time + cooldown > Time.get_ticks_msec()):
-		_deactivate()
+	pass
 
 func _activate(input_position:Vector2):
 	
-	activation_time = Time.get_ticks_msec()
-	
-	sprite.visible = true;
+	_deactivate()
 	position = input_position;
+	sprite.visible = true;
 
 func _deactivate():
 	sprite.visible= false;

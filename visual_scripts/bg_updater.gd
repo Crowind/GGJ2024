@@ -1,6 +1,7 @@
 extends Node2D
 
 var brushes:Array[Node]
+
 @export var poolsize:int
 @export var viewport:SubViewport
 @export var tilemap:TileMap
@@ -22,11 +23,11 @@ func _ready():
 	for child in tilemap.get_children():
 		var enemy_child: EnemyBase = child as EnemyBase
 		if enemy_child != null:
-			enemy_child.on_laughing.connect(_dispatch_laughter.bind())
-		
+			enemy_child.on_laughing.connect(_dispatch_laughter)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	
 	pass
 
 func _dispatch_laughter(normalized_position:Vector2):
@@ -48,7 +49,4 @@ func _fill_percentage() -> float:
 		return count/(size.x*size.y)
 	
 
-
-#func _on_timer_timeout():
-#	_dispatch_laughter(Vector2(randf_range(0,1),randf_range(0,1))) # Replace with function body.
 
