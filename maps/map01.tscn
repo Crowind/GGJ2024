@@ -28,6 +28,60 @@ layer_1/y_sort_enabled = true
 layer_1/z_index = 2
 layer_1/tile_data = PackedInt32Array()
 
+[node name="Enemy" parent="TileMap" instance=ExtResource("3_ljykw")]
+position = Vector2(85, 212)
+
+[node name="Enemy2" parent="TileMap" instance=ExtResource("4_828d0")]
+position = Vector2(383, 97)
+
+[node name="Enemy3" parent="TileMap" instance=ExtResource("4_828d0")]
+position = Vector2(86, 339)
+
+[node name="Enemy4" parent="TileMap" instance=ExtResource("3_ljykw")]
+position = Vector2(313, 183)
+
+[node name="Enemy5" parent="TileMap" instance=ExtResource("5_pjx2a")]
+position = Vector2(279, 51)
+
+[node name="Enemy6" parent="TileMap" instance=ExtResource("3_ljykw")]
+position = Vector2(54, 114)
+
+[node name="Enemy7" parent="TileMap" instance=ExtResource("4_828d0")]
+position = Vector2(217, 227)
+
+[node name="Enemy8" parent="TileMap" instance=ExtResource("4_828d0")]
+position = Vector2(290, 343)
+
+[node name="Enemy9" parent="TileMap" instance=ExtResource("5_pjx2a")]
+position = Vector2(628, 118)
+
+[node name="Enemy10" parent="TileMap" instance=ExtResource("3_ljykw")]
+position = Vector2(671, 254)
+
+[node name="Enemy11" parent="TileMap" instance=ExtResource("3_ljykw")]
+position = Vector2(581, 367)
+
+[node name="Enemy12" parent="TileMap" instance=ExtResource("3_ljykw")]
+position = Vector2(351, 439)
+
+[node name="Enemy13" parent="TileMap" instance=ExtResource("3_ljykw")]
+position = Vector2(816, 444)
+
+[node name="Enemy14" parent="TileMap" instance=ExtResource("5_pjx2a")]
+position = Vector2(809, 313)
+
+[node name="Enemy15" parent="TileMap" instance=ExtResource("5_pjx2a")]
+position = Vector2(604, 444)
+
+[node name="Enemy16" parent="TileMap" instance=ExtResource("5_pjx2a")]
+position = Vector2(797, 124)
+
+[node name="Enemy17" parent="TileMap" instance=ExtResource("4_828d0")]
+position = Vector2(167, 442)
+
+[node name="Enemy18" parent="TileMap" instance=ExtResource("4_828d0")]
+position = Vector2(512, 77)
+
 [node name="Banana" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(193, 105.5)
 
@@ -57,36 +111,6 @@ position = Vector2(330, 133)
 
 [node name="Banana9" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(275.5, 239)
-
-[node name="Enemy" parent="TileMap" instance=ExtResource("3_ljykw")]
-position = Vector2(292, 154)
-
-[node name="Enemy2" parent="TileMap" instance=ExtResource("3_ljykw")]
-position = Vector2(372, 82.5)
-
-[node name="Enemy3" parent="TileMap" instance=ExtResource("3_ljykw")]
-position = Vector2(289.5, 53)
-
-[node name="Enemy4" parent="TileMap" instance=ExtResource("3_ljykw")]
-position = Vector2(397, 167)
-
-[node name="Enemy5" parent="TileMap" instance=ExtResource("3_ljykw")]
-position = Vector2(105, 193.5)
-
-[node name="Enemy6" parent="TileMap" instance=ExtResource("3_ljykw")]
-position = Vector2(77, 117)
-
-[node name="Enemy7" parent="TileMap" instance=ExtResource("3_ljykw")]
-position = Vector2(208, 139)
-
-[node name="Enemy8" parent="TileMap" instance=ExtResource("3_ljykw")]
-position = Vector2(232, 234)
-
-[node name="Enemy9" parent="TileMap" instance=ExtResource("4_828d0")]
-position = Vector2(193, 356)
-
-[node name="Enemy10" parent="TileMap" instance=ExtResource("5_pjx2a")]
-position = Vector2(329, 336)
 
 [node name="Joke" parent="TileMap" instance=ExtResource("6_olux7")]
 position = Vector2(521, 223)

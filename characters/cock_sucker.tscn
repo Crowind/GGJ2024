@@ -7,9 +7,8 @@
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_34d43")
-animation = &"walk_up"
+animation = &"idle_down"
 autoplay = "idle_down"
-frame_progress = 0.689456
 
 [node name="CharacterStats" parent="." index="4"]
 min_happiness = 2.0
