@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=28 format=3 uid="uid://b3btbr0mgha7u"]
+[gd_resource type="SpriteFrames" load_steps=32 format=3 uid="uid://b3btbr0mgha7u"]
 
 [ext_resource type="Texture2D" uid="uid://c64qiusowe60s" path="res://gfx/assets/Characters/Cacacazzi.png" id="1_na02m"]
 
@@ -41,6 +41,22 @@ region = Rect2(32, 224, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_vcnll"]
 atlas = ExtResource("1_na02m")
 region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_242b0"]
+atlas = ExtResource("1_na02m")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4hd0"]
+atlas = ExtResource("1_na02m")
+region = Rect2(160, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvm37"]
+atlas = ExtResource("1_na02m")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rw4kt"]
+atlas = ExtResource("1_na02m")
+region = Rect2(224, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e8hde"]
 atlas = ExtResource("1_na02m")
@@ -151,6 +167,23 @@ animations = [{
 }],
 "loop": false,
 "name": &"jack_in_a_box",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_242b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4hd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvm37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rw4kt")
+}],
+"loop": true,
+"name": &"shit_happens",
 "speed": 5.0
 }, {
 "frames": [{

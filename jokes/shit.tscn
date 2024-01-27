@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://bunh00owfi02u"]
+
+[ext_resource type="PackedScene" uid="uid://c11p23vtdxl1o" path="res://jokes/base_joke.tscn" id="1_kodpu"]
+[ext_resource type="Texture2D" uid="uid://ck3fwmjwg2ear" path="res://gfx/assets/Tile_actions.png" id="2_uox74"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4ud0"]
+atlas = ExtResource("2_uox74")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdq58"]
+atlas = ExtResource("2_uox74")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj66a"]
+atlas = ExtResource("2_uox74")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sabpm"]
+atlas = ExtResource("2_uox74")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ku0c"]
+atlas = ExtResource("2_uox74")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wwuph"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4ud0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdq58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj66a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sabpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ku0c")
+}],
+"loop": false,
+"name": &"triggered",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n4lvo"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_my4kr"]
+radius = 56.4358
+
+[node name="Joke" instance=ExtResource("1_kodpu")]
+z_index = 1
+animation_to_play = "shit_happens"
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+z_index = 1
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_wwuph")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="EffectCollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_n4lvo")
+
+[node name="LaughArea" parent="." index="2"]
+metadata/_edit_lock_ = true
+
+[node name="LaughCollisionShape2D" parent="LaughArea" index="0"]
+shape = SubResource("CircleShape2D_my4kr")
+metadata/_edit_lock_ = true

@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://x25hylfjvrc7"]
+
+[ext_resource type="PackedScene" uid="uid://c11p23vtdxl1o" path="res://jokes/base_joke.tscn" id="1_8llv8"]
+[ext_resource type="Texture2D" uid="uid://ck3fwmjwg2ear" path="res://gfx/assets/Tile_actions.png" id="2_iekd8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66pus"]
+atlas = ExtResource("2_iekd8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4061"]
+atlas = ExtResource("2_iekd8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or5ua"]
+atlas = ExtResource("2_iekd8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rekyy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66pus")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4061")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or5ua")
+}],
+"loop": false,
+"name": &"triggered",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j76d4"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qwj8a"]
+radius = 89.0056
+
+[node name="Joke" instance=ExtResource("1_8llv8")]
+animation_to_play = "down_on_manhole"
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+z_index = 1
+position = Vector2(0, -13)
+sprite_frames = SubResource("SpriteFrames_rekyy")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="EffectCollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_j76d4")
+
+[node name="LaughArea" parent="." index="2"]
+metadata/_edit_lock_ = true
+
+[node name="LaughCollisionShape2D" parent="LaughArea" index="0"]
+shape = SubResource("CircleShape2D_qwj8a")
+metadata/_edit_lock_ = true

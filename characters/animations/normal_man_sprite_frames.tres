@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=29 format=3 uid="uid://qgg7sg5p0h52"]
+[gd_resource type="SpriteFrames" load_steps=33 format=3 uid="uid://qgg7sg5p0h52"]
 
 [ext_resource type="Texture2D" uid="uid://6l3bvwrkg01h" path="res://gfx/assets/Characters/uomobase.png" id="1_fm11y"]
 
@@ -45,6 +45,22 @@ region = Rect2(128, 224, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tfrsc"]
 atlas = ExtResource("1_fm11y")
 region = Rect2(160, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugg3d"]
+atlas = ExtResource("1_fm11y")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5tqn"]
+atlas = ExtResource("1_fm11y")
+region = Rect2(160, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0jo2"]
+atlas = ExtResource("1_fm11y")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reote"]
+atlas = ExtResource("1_fm11y")
+region = Rect2(224, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_biu8q"]
 atlas = ExtResource("1_fm11y")
@@ -158,6 +174,23 @@ animations = [{
 }],
 "loop": false,
 "name": &"jack_in_a_box",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugg3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5tqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0jo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reote")
+}],
+"loop": true,
+"name": &"shit_happens",
 "speed": 5.0
 }, {
 "frames": [{
