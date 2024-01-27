@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://fnxda08spumw"]
+
+[ext_resource type="Texture2D" uid="uid://frp84jtkco1s" path="res://gfx/assets/trail.png" id="1_ee818"]
+[ext_resource type="Script" path="res://scenes/laughter_effect.gd" id="1_v1pdg"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_v1pdg")
+sprite = NodePath("Brush")
+cooldown = 1.5
+
+[node name="Brush" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_ee818")
