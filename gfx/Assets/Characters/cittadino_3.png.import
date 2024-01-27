@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daqey07t1u3k7"
-path="res://.godot/imported/Particles_AH.png-c6858857d0da9123842e7627920eb17d.ctex"
+uid="uid://b3aetvyuyhwfd"
+path="res://.godot/imported/cittadino_3.png-d46cf2b43d37404a92ceeeb2ae52b350.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/vfx/Particles_AH.png"
-dest_files=["res://.godot/imported/Particles_AH.png-c6858857d0da9123842e7627920eb17d.ctex"]
+source_file="res://gfx/assets/Characters/cittadino_3.png"
+dest_files=["res://.godot/imported/cittadino_3.png-d46cf2b43d37404a92ceeeb2ae52b350.ctex"]
 
 [params]
 

@@ -1,0 +1,289 @@
+[gd_scene load_steps=32 format=3 uid="uid://br74e1c8ano8f"]
+
+[ext_resource type="Script" path="res://visual_scripts/bg_updater.gd" id="1_nqm3q"]
+[ext_resource type="Texture2D" uid="uid://qkrub1epix6p" path="res://gfx/temp/perlin.jpg" id="4_4f7pi"]
+[ext_resource type="Script" path="res://tests/Timer.gd" id="4_i4esy"]
+[ext_resource type="Texture2D" uid="uid://er6f2i6li8pe" path="res://gfx/temp/Free-Nature-Backgrounds-Pixel-Art6.png" id="5_6kgur"]
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_lvnl2"]
+default_input_values = [1, Vector2(10, 10), 2, Vector2(0, 0)]
+function = 1
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_mggtj"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(1, 1, 1)]
+expanded_output_ports = [0]
+op_type = 3
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_io305"]
+constant = 0.5
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_shbtg"]
+source = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_k2uy6"]
+parameter_name = "Albedo"
+texture_type = 1
+texture_filter = 1
+texture_repeat = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_sv2y8"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_nw2gt"]
+parameter_name = "Mask"
+texture_type = 1
+texture_filter = 1
+texture_repeat = 1
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_2y6jf"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_brpa5"]
+constant = 0.01
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_kwsdx"]
+output_port_for_preview = 0
+expanded_output_ports = [0]
+source = 5
+texture = ExtResource("4_4f7pi")
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_05qau"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_db1sc"]
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_amnve"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0.5, 0.5, 0.5, 0.5)]
+op_type = 5
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_0ub6u"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_xxpp3"]
+function = 31
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_884ks"]
+default_input_values = [1, Vector2(0.02, 0.02), 2, Vector2(0, 0)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_hgqw8"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_cd43p"]
+parameter_name = "Perlin_Noise_1"
+texture_type = 1
+texture_filter = 1
+texture_repeat = 1
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_y3utw"]
+default_input_values = [1, Vector2(15, 15), 2, Vector2(0, 0)]
+function = 1
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_1qne2"]
+parameter_name = "Perlin_Noise_2"
+texture_type = 1
+texture_filter = 1
+texture_repeat = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_hmvjv"]
+output_port_for_preview = 0
+expanded_output_ports = [0]
+source = 5
+texture = ExtResource("4_4f7pi")
+
+[sub_resource type="VisualShader" id="VisualShader_ahio2"]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform sampler2D Albedo : source_color, filter_nearest, repeat_enable;
+uniform sampler2D Perlin_Noise_1 : source_color, filter_nearest, repeat_enable;
+uniform sampler2D Perlin_Noise_2 : source_color, filter_nearest, repeat_enable;
+uniform sampler2D Mask : source_color, filter_nearest, repeat_enable;
+
+
+
+void fragment() {
+	vec4 n_out13p0;
+// Texture2D:13
+	n_out13p0 = texture(Albedo, UV);
+
+
+	vec3 n_out21p0;
+// ColorFunc:21
+	{
+		vec3 c = vec3(n_out13p0.xyz);
+		float max1 = max(c.r, c.g);
+		float max2 = max(max1, c.b);
+		n_out21p0 = vec3(max2, max2, max2);
+	}
+
+
+// Input:4
+	float n_out4p0 = TIME;
+
+
+// UVFunc:3
+	vec2 n_in3p1 = vec2(0.02000, 0.02000);
+	vec2 n_out3p0 = vec2(n_out4p0) * n_in3p1 + UV;
+
+
+// UVFunc:7
+	vec2 n_in7p1 = vec2(15.00000, 15.00000);
+	vec2 n_in7p2 = vec2(0.00000, 0.00000);
+	vec2 n_out7p0 = (n_out3p0 - n_in7p2) * n_in7p1 + n_in7p2;
+
+
+	vec4 n_out2p0;
+// Texture2D:2
+	n_out2p0 = texture(Perlin_Noise_1, n_out7p0);
+
+
+// UVFunc:10
+	vec2 n_in10p1 = vec2(10.00000, 10.00000);
+	vec2 n_in10p2 = vec2(0.00000, 0.00000);
+	vec2 n_out10p0 = (UV - n_in10p2) * n_in10p1 + n_in10p2;
+
+
+	vec4 n_out9p0;
+// Texture2D:9
+	n_out9p0 = texture(Perlin_Noise_2, n_out10p0);
+
+
+// FloatConstant:12
+	float n_out12p0 = 0.500000;
+
+
+// Mix:11
+	vec3 n_out11p0 = mix(vec3(n_out2p0.xyz), vec3(n_out9p0.xyz), vec3(n_out12p0));
+
+
+// FloatConstant:18
+	float n_out18p0 = 0.010000;
+
+
+// VectorOp:23
+	vec2 n_out23p0 = vec2(n_out11p0.xy) * vec2(n_out18p0);
+
+
+// Input:20
+	vec2 n_out20p0 = UV;
+
+
+// VectorOp:17
+	vec2 n_out17p0 = n_out23p0 + n_out20p0;
+
+
+	vec4 n_out15p0;
+// Texture2D:15
+	n_out15p0 = texture(Mask, n_out17p0);
+
+
+// FloatFunc:24
+	float n_out24p0 = 1.0 - n_out15p0.x;
+
+
+// Mix:22
+	vec4 n_out22p0 = mix(n_out13p0, vec4(n_out21p0, 0.0), vec4(n_out24p0));
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out22p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(-618.766, 406.577)
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(440, 840)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_kwsdx")
+nodes/fragment/2/position = Vector2(-1820, -320)
+nodes/fragment/3/node = SubResource("VisualShaderNodeUVFunc_884ks")
+nodes/fragment/3/position = Vector2(-2400, -360)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_hgqw8")
+nodes/fragment/4/position = Vector2(-2780, -280)
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture2DParameter_cd43p")
+nodes/fragment/6/position = Vector2(-2320, -100)
+nodes/fragment/7/node = SubResource("VisualShaderNodeUVFunc_y3utw")
+nodes/fragment/7/position = Vector2(-2080, -360)
+nodes/fragment/8/node = SubResource("VisualShaderNodeTexture2DParameter_1qne2")
+nodes/fragment/8/position = Vector2(-2340, 460)
+nodes/fragment/9/node = SubResource("VisualShaderNodeTexture_hmvjv")
+nodes/fragment/9/position = Vector2(-1840, 240)
+nodes/fragment/10/node = SubResource("VisualShaderNodeUVFunc_lvnl2")
+nodes/fragment/10/position = Vector2(-2120, 260)
+nodes/fragment/11/node = SubResource("VisualShaderNodeMix_mggtj")
+nodes/fragment/11/position = Vector2(-1500, 40)
+nodes/fragment/12/node = SubResource("VisualShaderNodeFloatConstant_io305")
+nodes/fragment/12/position = Vector2(-1760, 100)
+nodes/fragment/13/node = SubResource("VisualShaderNodeTexture_shbtg")
+nodes/fragment/13/position = Vector2(-820, 1100)
+nodes/fragment/14/node = SubResource("VisualShaderNodeTexture2DParameter_k2uy6")
+nodes/fragment/14/position = Vector2(-1220, 940)
+nodes/fragment/15/node = SubResource("VisualShaderNodeTexture_sv2y8")
+nodes/fragment/15/position = Vector2(-780, 700)
+nodes/fragment/16/node = SubResource("VisualShaderNodeTexture2DParameter_nw2gt")
+nodes/fragment/16/position = Vector2(-1240, 540)
+nodes/fragment/17/node = SubResource("VisualShaderNodeVectorOp_2y6jf")
+nodes/fragment/17/position = Vector2(-1080, 300)
+nodes/fragment/18/node = SubResource("VisualShaderNodeFloatConstant_brpa5")
+nodes/fragment/18/position = Vector2(-1440, 300)
+nodes/fragment/20/node = SubResource("VisualShaderNodeInput_05qau")
+nodes/fragment/20/position = Vector2(-1520, 460)
+nodes/fragment/21/node = SubResource("VisualShaderNodeColorFunc_db1sc")
+nodes/fragment/21/position = Vector2(-520, 1180)
+nodes/fragment/22/node = SubResource("VisualShaderNodeMix_amnve")
+nodes/fragment/22/position = Vector2(-180, 900)
+nodes/fragment/23/node = SubResource("VisualShaderNodeVectorOp_0ub6u")
+nodes/fragment/23/position = Vector2(-1240, 220)
+nodes/fragment/24/node = SubResource("VisualShaderNodeFloatFunc_xxpp3")
+nodes/fragment/24/position = Vector2(-490.311, 799.999)
+nodes/fragment/connections = PackedInt32Array(6, 0, 2, 2, 4, 0, 3, 2, 3, 0, 7, 0, 7, 0, 2, 0, 10, 0, 9, 0, 2, 0, 11, 0, 9, 0, 11, 1, 8, 0, 9, 2, 12, 0, 11, 2, 14, 0, 13, 2, 16, 0, 15, 2, 20, 0, 17, 1, 17, 0, 15, 0, 13, 0, 21, 0, 13, 0, 22, 0, 21, 0, 22, 1, 11, 0, 23, 0, 18, 0, 23, 1, 23, 0, 17, 0, 22, 0, 0, 0, 15, 0, 24, 0, 24, 0, 22, 2)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_snaob"]
+load_path = "res://.godot/imported/Free-Nature-Backgrounds-Pixel-Art6.png-5a49f482fb1e7f51e207b4e9d7b0819c.ctex"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5boai"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w6yw1"]
+load_path = "res://.godot/imported/perlin2.png-acdfb8a02f522a552e0c648dec71a0db.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_28swe"]
+load_path = "res://.godot/imported/perlin.jpg-071a3bae9ed0e789450d6dba12028ff0.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4w3k6"]
+resource_local_to_scene = true
+shader = SubResource("VisualShader_ahio2")
+shader_parameter/Albedo = SubResource("CompressedTexture2D_snaob")
+shader_parameter/Perlin_Noise_1 = SubResource("CompressedTexture2D_w6yw1")
+shader_parameter/Perlin_Noise_2 = SubResource("CompressedTexture2D_28swe")
+shader_parameter/Mask = SubResource("ViewportTexture_5boai")
+
+[node name="Node2D" type="Node2D"]
+texture_filter = 1
+position = Vector2(-79, 47)
+script = ExtResource("1_nqm3q")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(480, 270)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1442, -555)
+
+[node name="background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_4w3k6")
+position = Vector2(-1423, -554)
+scale = Vector2(0.484167, 0.484167)
+texture = ExtResource("5_6kgur")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.153
+autostart = true
+script = ExtResource("4_i4esy")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

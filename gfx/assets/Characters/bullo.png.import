@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daqey07t1u3k7"
-path="res://.godot/imported/Particles_AH.png-c6858857d0da9123842e7627920eb17d.ctex"
+uid="uid://b7vev6ygg0jcd"
+path="res://.godot/imported/bullo.png-b95fe56ed9e60d0f6aa280a0a98b72c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/vfx/Particles_AH.png"
-dest_files=["res://.godot/imported/Particles_AH.png-c6858857d0da9123842e7627920eb17d.ctex"]
+source_file="res://gfx/assets/Characters/bullo.png"
+dest_files=["res://.godot/imported/bullo.png-b95fe56ed9e60d0f6aa280a0a98b72c5.ctex"]
 
 [params]
 

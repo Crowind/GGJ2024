@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqlu5pp2w7853"]
+
+[ext_resource type="PackedScene" uid="uid://c11p23vtdxl1o" path="res://jokes/base_joke.tscn" id="1_8rf84"]
+[ext_resource type="Texture2D" uid="uid://b0qy6hlyhpdev" path="res://gfx/temp/banana.png" id="2_ui5e1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bu83j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ui5e1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Banana" instance=ExtResource("1_8rf84")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_bu83j")

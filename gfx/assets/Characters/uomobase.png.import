@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daqey07t1u3k7"
-path="res://.godot/imported/Particles_AH.png-c6858857d0da9123842e7627920eb17d.ctex"
+uid="uid://6l3bvwrkg01h"
+path="res://.godot/imported/uomobase.png-bd41ee404e4857fbf69dcb6d62a8fb33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/vfx/Particles_AH.png"
-dest_files=["res://.godot/imported/Particles_AH.png-c6858857d0da9123842e7627920eb17d.ctex"]
+source_file="res://gfx/assets/Characters/uomobase.png"
+dest_files=["res://.godot/imported/uomobase.png-bd41ee404e4857fbf69dcb6d62a8fb33.ctex"]
 
 [params]
 
