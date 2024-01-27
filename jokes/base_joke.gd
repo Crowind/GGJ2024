@@ -6,7 +6,7 @@ class_name BaseJoke
 @onready var laugh_area_shape: CollisionShape2D = $LaughArea/LaughCollisionShape2D
 @onready var timer: Timer = $Timer
 
-@export var happiness_to_add: float = 10
+@export var happiness_to_add: float = 2
 @export var joke_lifetime: float = 10
 @export var joke_duration: float = 5
 @export var smile_duration: float = 5

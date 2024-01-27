@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cemihl8j566a7"]
+[gd_scene load_steps=4 format=3 uid="uid://cemihl8j566a7"]
 
 [ext_resource type="TileSet" uid="uid://dirdjnrfat8ag" path="res://tile_sets/city_tileset.tres" id="1_c2qh1"]
 [ext_resource type="PackedScene" uid="uid://bt7d6dj4gs6p1" path="res://characters/enemy.tscn" id="1_r5nb0"]
+[ext_resource type="PackedScene" uid="uid://bqlu5pp2w7853" path="res://jokes/banana.tscn" id="3_wkcnn"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -23,176 +24,31 @@ layer_0/tile_data = PackedInt32Array(0, 1, 0, 65537, 1, 1, 131073, 1, 1, 131072,
 metadata/_edit_lock_ = true
 
 [node name="Enemy" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(297, 138)
+position = Vector2(109, 94)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
 [node name="Enemy2" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(132.5, 80)
+position = Vector2(130.5, 87)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
-[node name="Enemy3" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(177.5, 58)
-min_idle_time = 0.5
-max_idle_time = 2.0
+[node name="Banana" parent="TileMap" instance=ExtResource("3_wkcnn")]
+position = Vector2(119.5, 122)
+scale = Vector2(0.5, 0.5)
 
-[node name="Enemy4" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(241.5, 59.5)
-min_idle_time = 0.5
-max_idle_time = 2.0
+[node name="Banana2" parent="TileMap" instance=ExtResource("3_wkcnn")]
+position = Vector2(139, 141)
+scale = Vector2(0.5, 0.5)
 
-[node name="Enemy5" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(274.5, 49.5)
-min_idle_time = 0.5
-max_idle_time = 2.0
+[node name="Banana3" parent="TileMap" instance=ExtResource("3_wkcnn")]
+position = Vector2(113, 139.5)
+scale = Vector2(0.5, 0.5)
 
-[node name="Enemy6" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(306, 71.5)
-min_idle_time = 0.5
-max_idle_time = 2.0
+[node name="Banana4" parent="TileMap" instance=ExtResource("3_wkcnn")]
+position = Vector2(101, 72)
+scale = Vector2(0.5, 0.5)
 
-[node name="Enemy7" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(266, 135)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy8" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(285, 180)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy9" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(325.5, 162)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy10" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(356, 115.5)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy11" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(384.5, 157)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy12" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(351.5, 195.5)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy13" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(282.5, 213.5)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy14" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(220, 166)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy16" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(220.5, 222)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy17" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(179.5, 161)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy18" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(129.5, 178)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy19" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(93.5, 158.5)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy20" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(81, 208)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy21" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(134.5, 235.5)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy22" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(406, 116)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy23" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(375.5, 78)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy24" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(412.5, 51)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy25" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(173.5, 95)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy26" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(100, 67)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy27" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(49, 96)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy28" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(29, 26.5)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy29" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(165, 22.5)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy30" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(345.5, 60.5)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy31" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(437, 189.5)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy32" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(408.5, 234)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy33" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(111, 98.5)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy34" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(60, 162.5)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy35" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(48, 213)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy15" parent="TileMap" instance=ExtResource("1_r5nb0")]
-position = Vector2(167, 198)
-min_idle_time = 0.5
-max_idle_time = 2.0
+[node name="Banana5" parent="TileMap" instance=ExtResource("3_wkcnn")]
+position = Vector2(125.5, 152.5)
+scale = Vector2(0.5, 0.5)

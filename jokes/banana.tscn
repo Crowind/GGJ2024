@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c11p23vtdxl1o"]
+[gd_scene load_steps=4 format=3 uid="uid://bqlu5pp2w7853"]
 
-[ext_resource type="Script" path="res://jokes/base_joke.gd" id="1_vdftl"]
+[ext_resource type="PackedScene" uid="uid://c11p23vtdxl1o" path="res://jokes/base_joke.tscn" id="1_8rf84"]
 [ext_resource type="Texture2D" uid="uid://b0qy6hlyhpdev" path="res://gfx/temp/banana.png" id="2_ui5e1"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_sr2jg"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_bu83j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -14,34 +14,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4jmdl"]
-radius = 3.0
+[node name="Banana" instance=ExtResource("1_8rf84")]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sjxo8"]
-radius = 83.0542
-
-[node name="Banana" type="Area2D"]
-y_sort_enabled = true
-script = ExtResource("1_vdftl")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
-sprite_frames = SubResource("SpriteFrames_sr2jg")
-
-[node name="EffectCollisionShape2D" type="CollisionShape2D" parent="."]
-y_sort_enabled = true
-shape = SubResource("CircleShape2D_4jmdl")
-
-[node name="LaughArea" type="Area2D" parent="."]
-
-[node name="LaughCollisionShape2D" type="CollisionShape2D" parent="LaughArea"]
-shape = SubResource("CircleShape2D_sjxo8")
-debug_color = Color(0.682353, 0.701961, 0, 0.419608)
-
-[node name="Timer" type="Timer" parent="."]
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
-[connection signal="body_entered" from="LaughArea" to="." method="_on_laugh_area_body_entered"]
-[connection signal="body_exited" from="LaughArea" to="." method="_on_laugh_area_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_bu83j")
