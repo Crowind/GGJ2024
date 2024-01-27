@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bt7d6dj4gs6p1"]
+[gd_scene load_steps=22 format=3 uid="uid://bt7d6dj4gs6p1"]
 
 [ext_resource type="Script" path="res://characters/enemy.gd" id="1_d8gr1"]
 [ext_resource type="Texture2D" uid="uid://c0wcnko8uy0c" path="res://gfx/temp/human_base.png" id="2_sy3kq"]
@@ -15,6 +15,22 @@ region = Rect2(64, 18, 16, 18)
 [sub_resource type="AtlasTexture" id="AtlasTexture_i230k"]
 atlas = ExtResource("2_sy3kq")
 region = Rect2(64, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk8jv"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(80, 36, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46ltx"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(96, 36, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6tet"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(112, 36, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhjs3"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(128, 36, 16, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7y0p4"]
 atlas = ExtResource("2_sy3kq")
@@ -80,6 +96,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mk8jv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46ltx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6tet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhjs3")
+}],
+"loop": true,
+"name": &"suffering",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_7y0p4")
 }, {
 "duration": 1.0,
@@ -125,6 +158,7 @@ animations = [{
 radius = 4.0
 
 [node name="Enemy" type="CharacterBody2D"]
+z_index = 1
 y_sort_enabled = true
 collision_mask = 2
 slide_on_ceiling = false
@@ -139,7 +173,8 @@ script = ExtResource("1_d8gr1")
 y_sort_enabled = true
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_xm215")
-animation = &"idle_up"
+animation = &"suffering"
+frame_progress = 0.370776
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true

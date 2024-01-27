@@ -55,21 +55,25 @@ func _physics_process(delta):
 
 
 func _update_animations():
-	if !velocity.is_zero_approx():
-		var angle_deg = rad_to_deg(velocity.angle())
-		#print(str(angle_deg))
-		if (angle_deg < 0 && angle_deg >= -60) || (angle_deg >= 0 && angle_deg <= 60):
-			animated_sprite.play("walk_side")
-			animated_sprite.flip_h = false
-		elif (angle_deg <= 180 && angle_deg >= 120) || (angle_deg >= -180 && angle_deg <= -120):
-			animated_sprite.play("walk_side")
-			animated_sprite.flip_h = true
-		elif angle_deg > 60 && angle_deg < 120:
-			animated_sprite.play("walk_down")
-		else:
-			animated_sprite.play("walk_up")
-	else:
-		animated_sprite.play("idle_down")
+	match current_state:
+		State.Walking:
+			if !velocity.is_zero_approx():
+				var angle_deg = rad_to_deg(velocity.angle())
+				#print(str(angle_deg))
+				if (angle_deg < 0 && angle_deg >= -60) || (angle_deg >= 0 && angle_deg <= 60):
+					animated_sprite.play("walk_side")
+					animated_sprite.flip_h = false
+				elif (angle_deg <= 180 && angle_deg >= 120) || (angle_deg >= -180 && angle_deg <= -120):
+					animated_sprite.play("walk_side")
+					animated_sprite.flip_h = true
+				elif angle_deg > 60 && angle_deg < 120:
+					animated_sprite.play("walk_down")
+				else:
+					animated_sprite.play("walk_up")
+			else:
+				animated_sprite.play("idle_down")
+		State.Idle:
+			animated_sprite.play("idle_down")
 
 
 func _choose_next_state():
@@ -115,3 +119,24 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 
 func get_normalized_poisition_on_map() -> Vector2:
 	return position / max_rand
+
+
+func on_joke_entered(joke: BaseJoke):
+	print("on joke entered")
+	current_state = State.Suffering
+	animated_sprite.play("suffering")
+	velocity = Vector2.ZERO
+	navigation_agent.velocity = Vector2.ZERO
+	timer.start(joke.joke_duration)
+
+
+func on_joke_exited(joke: BaseJoke):
+	print("on joke exited")
+
+
+func on_laugh_area_entered(joke: BaseJoke):
+	print("ridi stronzo!!!")
+
+
+func on_laugh_area_exited(joke: BaseJoke):
+	print("smetti di ridere stronzo!!!")

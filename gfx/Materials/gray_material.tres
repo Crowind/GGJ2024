@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bliejoy6tu0fa"]
 
-[ext_resource type="Shader" uid="uid://glupfp87o44w" path="res://gfx/Shaders/grayscale.tres" id="1_r3iqn"]
+[ext_resource type="Shader" uid="uid://glupfp87o44w" path="res://gfx/shaders/grayscale.tres" id="1_r3iqn"]
 [ext_resource type="Texture2D" uid="uid://er6f2i6li8pe" path="res://gfx/temp/Free-Nature-Backgrounds-Pixel-Art6.png" id="2_0fmcs"]
 [ext_resource type="Texture2D" uid="uid://qkrub1epix6p" path="res://gfx/temp/perlin.jpg" id="2_27in3"]
 [ext_resource type="Texture2D" uid="uid://f234nchd5uck" path="res://gfx/temp/perlin2.png" id="4_y7wkv"]

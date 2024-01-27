@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsuojkyutwuw4"
-path="res://.godot/imported/Bullo_anim.png-5770c4ca61c3ec075433acdbe48536ae.ctex"
+path="res://.godot/imported/Bullo_anim.png-6fc759e052926c6969722f2305a931f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/Assets/Bullo/Bullo_anim.png"
-dest_files=["res://.godot/imported/Bullo_anim.png-5770c4ca61c3ec075433acdbe48536ae.ctex"]
+source_file="res://gfx/assets/Bullo/Bullo_anim.png"
+dest_files=["res://.godot/imported/Bullo_anim.png-6fc759e052926c6969722f2305a931f2.ctex"]
 
 [params]
 
