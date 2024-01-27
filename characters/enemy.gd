@@ -18,8 +18,8 @@ var max_rand: Vector2
 
 @export var min_idle_time: float = 0.1
 @export var max_idle_time: float = 1
-@export var min_no_happiness_time: float = 1
-@export var max_no_happiness_time: float = 3
+@export var min_no_happiness_time: float = 3
+@export var max_no_happiness_time: float = 5
 
 var current_joke: BaseJoke
 var laugh_contagion_disabled: bool = true
