@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://6pt06m6kap86"]
+
+[ext_resource type="Texture2D" uid="uid://daqey07t1u3k7" path="res://gfx/VFX/Particles_AH.png" id="1_vqjmh"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0vxr0"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 23.28, 0)
+angle_min = -40.0
+angle_max = 40.0
+velocity_pivot = Vector3(0, 1, 0)
+direction = Vector3(0, -15, 0)
+spread = 20.0
+initial_velocity_min = 50.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 98, 0)
+
+[node name="LaughParticle" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_0vxr0")
+texture = ExtResource("1_vqjmh")
+lifetime = 2.0
+speed_scale = 2.08
+explosiveness = 0.15
+randomness = 0.15
+
+[node name="Camera2D" type="Camera2D" parent="."]

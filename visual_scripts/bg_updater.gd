@@ -25,9 +25,7 @@ func _process(_delta):
 func _dispatch_laughter(normalized_position:Vector2):
 	
 	var absolute_position = Vector2(lerp(0,viewport.size.x,normalized_position.x),lerp(0,viewport.size.y,normalized_position.y))
-	#absolute_position -= (Vector2(viewport.size))
 	brushes[currentIndex]._activate(absolute_position);
-	
 	currentIndex = (currentIndex+1) % poolsize;
 	
 func _fill_percentage() -> float:
