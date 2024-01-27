@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj7xkdgnwd5ap"]
+
+[ext_resource type="PackedScene" uid="uid://br74e1c8ano8f" path="res://tests/bg_updater.tscn" id="1_okqs5"]
+
+[sub_resource type="Environment" id="Environment_rrdqo"]
+background_mode = 3
+background_color = Color(0.439216, 0.141176, 0, 1)
+background_energy_multiplier = 0.58
+glow_enabled = true
+glow_intensity = 0.62
+glow_strength = 0.91
+glow_bloom = 0.1
+glow_blend_mode = 0
+glow_hdr_threshold = 0.7
+glow_hdr_scale = 0.14
+
+[node name="Gameplay" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rrdqo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="bg_updater" parent="." instance=ExtResource("1_okqs5")]
+poolsize = 3
