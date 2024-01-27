@@ -1,15 +1,16 @@
 extends CharacterBody2D
 class_name EnemyBase
 
-@export var speed = 100.0
+var speed = 100.0
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var timer: Timer = $Timer
-@onready var animated_sprite = $AnimatedSprite2D
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var stats: CharacterStats = $CharacterStats
 
-# temp, understand how to do this correctly
-@export var min_rand: Vector2 = Vector2(0, 0)
-@export var max_rand: Vector2 = Vector2(500, 500)
+var tile_map: TileMap
+var min_rand: Vector2
+var max_rand: Vector2
 
 @export var min_idle_time: float = 0.1
 @export var max_idle_time: float = 1
@@ -26,13 +27,20 @@ var current_state: State = State.Idle
 
 
 func _ready():
+	tile_map = get_parent() as TileMap
+	var tile_size: Vector2i = tile_map.tile_set.tile_size
+	var user_rect: Rect2i = tile_map.get_used_rect()
+	user_rect.size *= tile_size
+	min_rand = user_rect.position
+	max_rand = user_rect.size
 	timer.start(randf_range(min_idle_time, max_idle_time))
 	animated_sprite.play("idle_down")
+	speed = stats.speed_enum_to_speed()
 
 
 func _process(_delta):
 	_update_animations()
-	
+
 
 func _physics_process(delta):
 	match current_state:
@@ -103,3 +111,7 @@ func _on_navigation_agent_2d_path_changed():
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	velocity = safe_velocity
 	move_and_slide()
+
+
+func get_normalized_poisition_on_map() -> Vector2:
+	return position / max_rand
