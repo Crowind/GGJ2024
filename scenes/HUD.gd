@@ -5,6 +5,14 @@ extends CanvasLayer
 @export var icon_manhole: Texture2D
 var index = 0
 
+enum JokeType
+{
+	Jack = 1,
+	Poo = 2,
+	Manhole = 3,
+	Banana = 4
+}
+
 func _process(delta):
 	
 	if Input.is_action_just_pressed("joke_cycle"):
@@ -12,12 +20,12 @@ func _process(delta):
 		_icon_change()
 		
 func _icon_change():
-	if index == 1:
+	if index == JokeType.Jack:
 		get_node("BG/Icon").texture = icon_jack
-	elif index == 2:
+	elif index == JokeType.Poo:
 		get_node("BG/Icon").texture = icon_poo
-	elif index == 3:
+	elif index == JokeType.Manhole:
 		get_node("BG/Icon").texture = icon_manhole
-	elif index == 4:
+	elif index == JokeType.Banana:
 		get_node("BG/Icon").texture = icon_banana
 		index = 0
