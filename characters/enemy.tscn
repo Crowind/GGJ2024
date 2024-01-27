@@ -176,7 +176,7 @@ y_sort_enabled = true
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_xm215")
 animation = &"smile"
-frame_progress = 0.848995
+frame_progress = 0.294098
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
