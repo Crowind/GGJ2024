@@ -7,6 +7,7 @@ var speed = 100.0
 @onready var timer: Timer = $Timer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var stats: CharacterStats = $CharacterStats
+@onready var laugh_contagion_collision: CollisionShape2D = $LaughContagionArea2D/LaughContagionCollisionShape2D
 
 var tile_map: TileMap
 var min_rand: Vector2
@@ -15,6 +16,8 @@ var max_rand: Vector2
 @export var min_idle_time: float = 0.1
 @export var max_idle_time: float = 1
 
+var current_joke: BaseJoke
+var laugh_contagion_disabled: bool = true
 
 enum State
 {
@@ -36,10 +39,13 @@ func _ready():
 	timer.start(randf_range(min_idle_time, max_idle_time))
 	animated_sprite.play("idle_down")
 	speed = stats.speed_enum_to_speed()
+	laugh_contagion_collision.disabled = laugh_contagion_disabled
 
 
 func _process(_delta):
 	_update_animations()
+	if laugh_contagion_disabled != laugh_contagion_collision.disabled:
+		laugh_contagion_collision.disabled = laugh_contagion_disabled
 
 
 func _physics_process(delta):
@@ -89,14 +95,14 @@ func _randomize_vector2() -> Vector2:
 
 func _create_path():
 	var random_target: Vector2 = _randomize_vector2()
-	print("random target " + str(random_target))
 	navigation_agent.target_position = random_target
-	print("target_position " + str(navigation_agent.target_position))
 	current_state = State.Walking
 	timer.stop()
 
 
 func _on_timer_timeout():
+	laugh_contagion_disabled = true
+	current_joke = null
 	_create_path()
 
 
@@ -143,12 +149,28 @@ func on_joke_exited(joke: BaseJoke):
 
 func on_laugh_area_entered(joke: BaseJoke):
 	print("ridi stronzo!!!")
-	if stats.add_happiness(joke.happiness_to_add):
-		_stop_immediately()
-		current_state = State.Smiling
-		animated_sprite.play("smile")
-		timer.start(joke.smile_duration)
+	if current_state != State.Smiling:
+		if stats.add_happiness(joke.happiness_to_add):
+			current_joke = joke
+			_stop_immediately()
+			current_state = State.Smiling
+			animated_sprite.play("smile")
+			timer.start(joke.smile_duration)
+			laugh_contagion_disabled = false
+		else:
+			print("scherzo visto ma non rido ancora: " + str(stats.happiness))
 
 
 func on_laugh_area_exited(joke: BaseJoke):
 	print("smetti di ridere stronzo!!!")
+
+
+func _on_laugh_contagion_area_2d_body_entered(body):
+	if current_joke != null:
+		var enemy: EnemyBase = body as EnemyBase
+		enemy.on_joke_entered(current_joke)
+		print("sorriso contagiato!!!")
+
+
+func _on_laugh_contagion_area_2d_body_exited(body):
+	pass # Replace with function body.

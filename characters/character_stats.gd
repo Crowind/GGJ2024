@@ -51,6 +51,6 @@ func speed_enum_to_speed() -> float:
 
 func add_happiness(value: float) -> bool:
 	happiness += value
-	if value > 7:
+	if happiness > 7:
 		return true
 	return false

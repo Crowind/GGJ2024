@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bt7d6dj4gs6p1"]
+[gd_scene load_steps=28 format=3 uid="uid://bt7d6dj4gs6p1"]
 
 [ext_resource type="Script" path="res://characters/enemy.gd" id="1_d8gr1"]
 [ext_resource type="Texture2D" uid="uid://c0wcnko8uy0c" path="res://gfx/temp/human_base.png" id="2_sy3kq"]
@@ -197,6 +197,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_2nq3s"]
 radius = 4.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6fo1d"]
+radius = 35.1283
+
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
@@ -233,8 +236,16 @@ neighbor_distance = 100.0
 script = ExtResource("3_cc1bd")
 type = "Normal"
 
+[node name="LaughContagionArea2D" type="Area2D" parent="."]
+
+[node name="LaughContagionCollisionShape2D" type="CollisionShape2D" parent="LaughContagionArea2D"]
+shape = SubResource("CircleShape2D_6fo1d")
+debug_color = Color(0.701961, 0.639216, 0, 0.419608)
+
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="path_changed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_path_changed"]
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="LaughContagionArea2D" to="." method="_on_laugh_contagion_area_2d_body_entered"]
+[connection signal="body_exited" from="LaughContagionArea2D" to="." method="_on_laugh_contagion_area_2d_body_exited"]
