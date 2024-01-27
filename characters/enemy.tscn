@@ -1,5 +1,152 @@
-[gd_scene format=3 uid="uid://bt7d6dj4gs6p1"]
+[gd_scene load_steps=17 format=3 uid="uid://bt7d6dj4gs6p1"]
+
+[ext_resource type="Script" path="res://characters/enemy.gd" id="1_d8gr1"]
+[ext_resource type="Texture2D" uid="uid://c0wcnko8uy0c" path="res://gfx/temp/human_base.png" id="2_sy3kq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1veqi"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(64, 36, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7roks"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(64, 18, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i230k"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(64, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y0p4"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(0, 36, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18x8f"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(16, 36, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nelf8"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(32, 36, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw6ya"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(0, 18, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fra7l"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(16, 18, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubn3g"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(32, 18, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jar58"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(0, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2x3j"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(16, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqjx3"]
+atlas = ExtResource("2_sy3kq")
+region = Rect2(32, 0, 16, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xm215"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1veqi")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7roks")
+}],
+"loop": true,
+"name": &"idle_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i230k")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y0p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18x8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nelf8")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cw6ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fra7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubn3g")
+}],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jar58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2x3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqjx3")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2nq3s"]
+radius = 5.0
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_d8gr1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_xm215")
+animation = &"idle_side"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2nq3s")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 5.0
+target_desired_distance = 2.0
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 5.0
+time_horizon_obstacles = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="path_changed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_path_changed"]
+[connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
