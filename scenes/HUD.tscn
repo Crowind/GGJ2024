@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1v1fgk7u4gxh"]
+[gd_scene load_steps=7 format=3 uid="uid://cicra5qy4h8la"]
 
-[ext_resource type="Texture2D" uid="uid://dyv51n5r8fudl" path="res://gfx/Assets/UI/circlepixel.png" id="1_0wdi0"]
+[ext_resource type="Texture2D" uid="uid://dyv51n5r8fudl" path="res://gfx/assets/UI/circlepixel.png" id="1_0wdi0"]
 [ext_resource type="Script" path="res://Scenes/HUD.gd" id="1_ljx8e"]
-[ext_resource type="Texture2D" uid="uid://dinwrtfikgxt7" path="res://gfx/Assets/UI/pixel_banana.png" id="2_f3rro"]
-[ext_resource type="Texture2D" uid="uid://beglfdmptwcrf" path="res://gfx/Assets/UI/pixel_jack.png" id="3_tcrk2"]
-[ext_resource type="Texture2D" uid="uid://dnyd7kpeo30fn" path="res://gfx/Assets/UI/pixel_poo.png" id="4_55qe8"]
-[ext_resource type="Texture2D" uid="uid://cb7oweskt2ayl" path="res://gfx/Assets/UI/pixel_manhole.png" id="5_wtimf"]
+[ext_resource type="Texture2D" uid="uid://dinwrtfikgxt7" path="res://gfx/assets/UI/pixel_banana.png" id="2_f3rro"]
+[ext_resource type="Texture2D" uid="uid://beglfdmptwcrf" path="res://gfx/assets/UI/pixel_jack.png" id="3_tcrk2"]
+[ext_resource type="Texture2D" uid="uid://dnyd7kpeo30fn" path="res://gfx/assets/UI/pixel_poo.png" id="4_55qe8"]
+[ext_resource type="Texture2D" uid="uid://cb7oweskt2ayl" path="res://gfx/assets/UI/pixel_manhole.png" id="5_wtimf"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_ljx8e")
