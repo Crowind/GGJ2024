@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt7d6dj4gs6p1"]
+[gd_scene load_steps=8 format=3 uid="uid://bt7d6dj4gs6p1"]
 
 [ext_resource type="Script" path="res://characters/enemy.gd" id="1_d8gr1"]
-[ext_resource type="Script" path="res://characters/character_stats.gd" id="3_cc1bd"]
+[ext_resource type="SpriteFrames" uid="uid://meihwoiibn0d" path="res://characters/animations/empty_sprite_frames.tres" id="2_7sv8p"]
+[ext_resource type="Script" path="res://characters/subnodes/character_stats.gd" id="3_kn0fj"]
 [ext_resource type="Texture2D" uid="uid://daqey07t1u3k7" path="res://gfx/vfx/Particles_AH.png" id="4_xduwl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2nq3s"]
@@ -39,7 +40,8 @@ script = ExtResource("1_d8gr1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, -12)
-animation = &""
+sprite_frames = ExtResource("2_7sv8p")
+animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
@@ -57,7 +59,7 @@ max_neighbors = 5
 [node name="ChangeStateTimer" type="Timer" parent="."]
 
 [node name="CharacterStats" type="Node" parent="."]
-script = ExtResource("3_cc1bd")
+script = ExtResource("3_kn0fj")
 type = "Normal"
 
 [node name="LaughContagionArea2D" type="Area2D" parent="."]
