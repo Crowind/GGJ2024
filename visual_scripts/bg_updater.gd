@@ -48,5 +48,6 @@ func _fill_percentage() -> float:
 
 		return count/(size.x*size.y)
 	
-
+func _deploy_joke():
+	pass
 

@@ -3,7 +3,7 @@ extends CanvasLayer
 @export var icon_jack: Texture2D
 @export var icon_poo: Texture2D
 @export var icon_manhole: Texture2D
-var index = 0
+var index:JokeType = 0
 
 enum JokeType
 {
@@ -18,7 +18,19 @@ func _process(delta):
 	if Input.is_action_just_pressed("joke_cycle"):
 		index += 1
 		_icon_change()
-		
+	if Input.is_action_just_pressed("joke_deploy"):
+		var scene:Resource
+		match index:
+			JokeType.Jack:
+				scene = load("res://scenes/laughter_effect.tscn")
+			JokeType.Poo:
+				scene = load("res://jokes/banana.tscn")
+			JokeType.Manhole:
+				scene = load("res://scenes/laughter_effect.tscn")
+			JokeType.Banana:
+				scene = load("res://scenes/laughter_effect.tscn")
+	
+	
 func _icon_change():
 	if index == JokeType.Jack:
 		get_node("BG/Icon").texture = icon_jack
@@ -29,3 +41,4 @@ func _icon_change():
 	elif index == JokeType.Banana:
 		get_node("BG/Icon").texture = icon_banana
 		index = 0
+		
