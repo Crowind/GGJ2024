@@ -278,6 +278,8 @@ spread = 20.0
 initial_velocity_min = 50.0
 initial_velocity_max = 80.0
 gravity = Vector3(0, 98, 0)
+scale_min = 0.5
+scale_max = 0.6
 
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 1
@@ -306,8 +308,9 @@ path_desired_distance = 4.0
 target_desired_distance = 8.0
 path_postprocessing = 1
 avoidance_enabled = true
-radius = 16.0
-max_speed = 150.0
+radius = 4.0
+neighbor_distance = 100.0
+max_neighbors = 5
 
 [node name="ChangeStateTimer" type="Timer" parent="."]
 

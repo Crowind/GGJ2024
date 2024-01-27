@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=29 format=3 uid="uid://ci8f4vsk5imef"]
+[gd_resource type="SpriteFrames" load_steps=32 format=3 uid="uid://ci8f4vsk5imef"]
 
 [ext_resource type="Texture2D" uid="uid://b7vev6ygg0jcd" path="res://gfx/assets/Characters/bullo.png" id="1_yy5hf"]
 
@@ -82,15 +82,23 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("1_yy5hf")
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_74u5l"]
+atlas = ExtResource("1_yy5hf")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7j0lg"]
 atlas = ExtResource("1_yy5hf")
 region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu6og"]
+atlas = ExtResource("1_yy5hf")
+region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_erdsd"]
 atlas = ExtResource("1_yy5hf")
 region = Rect2(288, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fu6og"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sk6h"]
 atlas = ExtResource("1_yy5hf")
 region = Rect2(320, 0, 32, 32)
 
@@ -98,13 +106,17 @@ region = Rect2(320, 0, 32, 32)
 atlas = ExtResource("1_yy5hf")
 region = Rect2(352, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y4dc"]
+atlas = ExtResource("1_yy5hf")
+region = Rect2(224, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_bccfq"]
 atlas = ExtResource("1_yy5hf")
 region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7y4dc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_slr0s"]
 atlas = ExtResource("1_yy5hf")
-region = Rect2(224, 0, 32, 32)
+region = Rect2(224, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0fa6f"]
 atlas = ExtResource("1_yy5hf")
@@ -199,6 +211,9 @@ animations = [{
 "texture": SubResource("AtlasTexture_k07eo")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_74u5l")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_7j0lg")
 }],
 "loop": true,
@@ -207,10 +222,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fu6og")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_erdsd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fu6og")
+"texture": SubResource("AtlasTexture_3sk6h")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2wsfj")
@@ -221,10 +239,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7y4dc")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_bccfq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7y4dc")
+"texture": SubResource("AtlasTexture_slr0s")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0fa6f")

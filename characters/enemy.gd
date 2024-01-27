@@ -47,6 +47,7 @@ func _ready():
 	animated_sprite.play("idle_down")
 	speed = stats.speed_enum_to_speed()
 	laugh_contagion_collision.disabled = laugh_contagion_disabled
+	laugh_particles.visible = true
 	laugh_particles.emitting = false
 
 

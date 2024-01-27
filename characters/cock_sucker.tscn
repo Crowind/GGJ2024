@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cafmj311fl8kx"]
+
+[ext_resource type="PackedScene" uid="uid://bt7d6dj4gs6p1" path="res://characters/enemy.tscn" id="1_u1kai"]
+[ext_resource type="SpriteFrames" uid="uid://b3btbr0mgha7u" path="res://characters/animations/cock_sucker_sprite_frames.tres" id="2_34d43"]
+
+[node name="Enemy" instance=ExtResource("1_u1kai")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_34d43")
+animation = &"walk_up"
+autoplay = "idle_down"
+frame_progress = 0.689456
+
+[node name="CharacterStats" parent="." index="4"]
+min_happiness = 2.0
+max_happiness = 3.0
+movement_speed = 2
+
+[node name="LaughParticles" parent="." index="7"]
+visible = true
