@@ -47,3 +47,10 @@ func speed_enum_to_speed() -> float:
 		Speed.Fast:
 			return 4000.0
 	return 0
+
+
+func add_happiness(value: float) -> bool:
+	happiness += value
+	if value > 7:
+		return true
+	return false

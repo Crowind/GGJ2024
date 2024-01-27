@@ -31,8 +31,8 @@ func _ready():
 	var tile_size: Vector2i = tile_map.tile_set.tile_size
 	var user_rect: Rect2i = tile_map.get_used_rect()
 	user_rect.size *= tile_size
-	min_rand = user_rect.position
-	max_rand = user_rect.size
+	min_rand = user_rect.position as Vector2 * tile_map.scale
+	max_rand = user_rect.size as Vector2 * tile_map.scale
 	timer.start(randf_range(min_idle_time, max_idle_time))
 	animated_sprite.play("idle_down")
 	speed = stats.speed_enum_to_speed()
@@ -89,7 +89,9 @@ func _randomize_vector2() -> Vector2:
 
 func _create_path():
 	var random_target: Vector2 = _randomize_vector2()
+	print("random target " + str(random_target))
 	navigation_agent.target_position = random_target
+	print("target_position " + str(navigation_agent.target_position))
 	current_state = State.Walking
 	timer.stop()
 
@@ -99,13 +101,14 @@ func _on_timer_timeout():
 
 
 func _on_navigation_agent_2d_navigation_finished():
-	pass # Replace with function body.
+	print("navigation finished")
 
 
 func _on_navigation_agent_2d_target_reached():
 	#print("Target Reached")
 	timer.start(randf_range(min_idle_time, max_idle_time))
 	current_state = State.Idle
+	_stop_immediately()
 
 
 func _on_navigation_agent_2d_path_changed():
@@ -117,6 +120,11 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	move_and_slide()
 
 
+func _stop_immediately():
+	velocity = Vector2.ZERO
+	navigation_agent.velocity = Vector2.ZERO
+
+
 func get_normalized_poisition_on_map() -> Vector2:
 	return position / max_rand
 
@@ -125,8 +133,7 @@ func on_joke_entered(joke: BaseJoke):
 	print("on joke entered")
 	current_state = State.Suffering
 	animated_sprite.play("suffering")
-	velocity = Vector2.ZERO
-	navigation_agent.velocity = Vector2.ZERO
+	_stop_immediately()
 	timer.start(joke.joke_duration)
 
 
@@ -136,6 +143,11 @@ func on_joke_exited(joke: BaseJoke):
 
 func on_laugh_area_entered(joke: BaseJoke):
 	print("ridi stronzo!!!")
+	if stats.add_happiness(joke.happiness_to_add):
+		_stop_immediately()
+		current_state = State.Smiling
+		animated_sprite.play("smile")
+		timer.start(joke.smile_duration)
 
 
 func on_laugh_area_exited(joke: BaseJoke):

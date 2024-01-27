@@ -18,7 +18,7 @@ animations = [{
 radius = 3.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sjxo8"]
-radius = 40.0
+radius = 83.0542
 
 [node name="Banana" type="Area2D"]
 y_sort_enabled = true
@@ -38,7 +38,10 @@ shape = SubResource("CircleShape2D_4jmdl")
 shape = SubResource("CircleShape2D_sjxo8")
 debug_color = Color(0.682353, 0.701961, 0, 0.419608)
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="body_entered" from="LaughArea" to="." method="_on_laugh_area_body_entered"]
 [connection signal="body_exited" from="LaughArea" to="." method="_on_laugh_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
