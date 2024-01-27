@@ -1,6 +1,6 @@
 extends Node2D
 
-var brushes:Array
+var brushes:Array[Node]
 @export var poolsize:int
 @export var viewport:SubViewport
 var currentIndex:int
@@ -44,6 +44,6 @@ func _fill_percentage() -> float:
 	
 
 
-#func _on_timer_timeout():
-	#_dispatch_laughter(Vector2(randf_range(0,1),randf_range(0,1))) # Replace with function body.
+func _on_timer_timeout():
+	_dispatch_laughter(Vector2(randf_range(0,1),randf_range(0,1))) # Replace with function body.
 
