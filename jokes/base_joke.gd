@@ -8,6 +8,7 @@ class_name BaseJoke
 @onready var life_timer: Timer = $JokeLifeTimer
 @onready var duration_timer: Timer = $JokeDurationTimer
 
+@export var animation_to_play: String
 @export var happiness_to_add: float = 2
 @export var joke_lifetime: float = 10
 @export var joke_duration: float = 5
