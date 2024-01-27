@@ -3,33 +3,31 @@ extends CanvasLayer
 @export var icon_jack: Texture2D
 @export var icon_poo: Texture2D
 @export var icon_manhole: Texture2D
-var index:JokeType = 0
+
+@export var bg_updater:BgUpdater
+
+@export var joke_poo:PackedScene
+@export var joke_jack:PackedScene
+@export var joke_manhole:PackedScene
+@export var joke_banana:PackedScene
+
+var index:JokeType
 
 enum JokeType
 {
-	Jack = 1,
-	Poo = 2,
-	Manhole = 3,
-	Banana = 4
+	Jack = 0,
+	Poo = 1,
+	Manhole = 2,
+	Banana = 3 
 }
-
+func _ready():
+	index = JokeType.Banana
+	_icon_change()
+	
 func _process(delta):
 	
-	if Input.is_action_just_pressed("joke_cycle"):
-		index += 1
-		_icon_change()
-	if Input.is_action_just_pressed("joke_deploy"):
-		var scene:Resource
-		match index:
-			JokeType.Jack:
-				scene = load("res://scenes/laughter_effect.tscn")
-			JokeType.Poo:
-				scene = load("res://jokes/banana.tscn")
-			JokeType.Manhole:
-				scene = load("res://scenes/laughter_effect.tscn")
-			JokeType.Banana:
-				scene = load("res://scenes/laughter_effect.tscn")
-	
+	pass
+		
 	
 func _icon_change():
 	if index == JokeType.Jack:
@@ -40,5 +38,28 @@ func _icon_change():
 		get_node("BG/Icon").texture = icon_manhole
 	elif index == JokeType.Banana:
 		get_node("BG/Icon").texture = icon_banana
-		index = 0
 		
+		
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if Input.is_action_just_pressed("joke_cycle"):
+			index = (index+1) % JokeType.size()
+			_icon_change()
+			
+		
+		if Input.is_action_just_pressed("joke_deploy"):
+			var joke:Node;
+			match index:
+				JokeType.Jack:
+					joke = joke_jack.instantiate()
+				JokeType.Poo:
+					joke = joke_poo.instantiate()
+				JokeType.Manhole:
+					joke = joke_manhole.instantiate()
+				JokeType.Banana:
+					joke = joke_banana.instantiate()
+
+			joke.position = event.global_position
+						
+			bg_updater._deploy_joke(joke)

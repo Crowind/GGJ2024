@@ -1,4 +1,5 @@
 extends Node2D
+class_name BgUpdater
 
 var brushes:Array[Node]
 
@@ -48,6 +49,7 @@ func _fill_percentage() -> float:
 
 		return count/(size.x*size.y)
 	
-func _deploy_joke():
-	pass
+func _deploy_joke(joke:Node):
+	
+	tilemap.add_child(joke)
 

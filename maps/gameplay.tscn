@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://br74e1c8ano8f"]
+[gd_scene load_steps=39 format=3 uid="uid://br74e1c8ano8f"]
 
 [ext_resource type="Script" path="res://visual_scripts/bg_updater.gd" id="1_lbvqg"]
 [ext_resource type="Texture2D" uid="uid://qkrub1epix6p" path="res://gfx/temp/perlin.jpg" id="3_0kx3p"]
@@ -7,7 +7,11 @@
 [ext_resource type="PackedScene" path="res://characters/normal_man.tscn" id="4_vhj7h"]
 [ext_resource type="TileSet" uid="uid://dirdjnrfat8ag" path="res://tile_sets/city_tileset.tres" id="5_8mq6y"]
 [ext_resource type="PackedScene" path="res://characters/cock_sucker.tscn" id="5_vupaa"]
+[ext_resource type="PackedScene" uid="uid://bqlu5pp2w7853" path="res://jokes/banana.tscn" id="6_5omrn"]
 [ext_resource type="PackedScene" uid="uid://cicra5qy4h8la" path="res://scenes/HUD.tscn" id="8_xlrq8"]
+[ext_resource type="PackedScene" path="res://jokes/shit.tscn" id="9_6gsow"]
+[ext_resource type="PackedScene" uid="uid://cgnxahrnqcr8o" path="res://jokes/jack_in_a_box.tscn" id="10_35abx"]
+[ext_resource type="PackedScene" uid="uid://dinbqhsntwpl1" path="res://jokes/manhole.tscn" id="11_rbsp6"]
 
 [sub_resource type="Environment" id="Environment_770vq"]
 background_mode = 3
@@ -293,6 +297,7 @@ environment = SubResource("Environment_770vq")
 
 [node name="TileMap2" type="TileMap" parent="."]
 z_index = 1
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_e8j7i")
 tile_set = ExtResource("5_8mq6y")
 format = 2
@@ -367,4 +372,9 @@ position = Vector2(718, 443)
 [node name="Enemy22" parent="TileMap2" instance=ExtResource("5_vupaa")]
 position = Vector2(743, 140)
 
-[node name="HUD" parent="." instance=ExtResource("8_xlrq8")]
+[node name="HUD" parent="." node_paths=PackedStringArray("bg_updater") instance=ExtResource("8_xlrq8")]
+bg_updater = NodePath("..")
+joke_poo = ExtResource("9_6gsow")
+joke_jack = ExtResource("10_35abx")
+joke_manhole = ExtResource("11_rbsp6")
+joke_banana = ExtResource("6_5omrn")

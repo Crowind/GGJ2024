@@ -27,42 +27,52 @@ metadata/_edit_lock_ = true
 [node name="Banana" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(193, 105.5)
 scale = Vector2(0.5, 0.5)
+animation_to_play = ""
 
 [node name="Banana10" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(398, 240)
 scale = Vector2(0.5, 0.5)
+animation_to_play = ""
 
 [node name="Banana2" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(111, 83.5)
 scale = Vector2(0.5, 0.5)
+animation_to_play = ""
 
 [node name="Banana3" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(109.5, 146)
 scale = Vector2(0.5, 0.5)
+animation_to_play = ""
 
 [node name="Banana4" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(428, 222)
 scale = Vector2(0.5, 0.5)
+animation_to_play = ""
 
 [node name="Banana5" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(181, 179.5)
 scale = Vector2(0.5, 0.5)
+animation_to_play = ""
 
 [node name="Banana6" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(250.5, 141.5)
 scale = Vector2(0.5, 0.5)
+animation_to_play = ""
 
 [node name="Banana7" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(248, 179)
 scale = Vector2(0.5, 0.5)
+animation_to_play = ""
 
 [node name="Banana8" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(330, 133)
 scale = Vector2(0.5, 0.5)
+animation_to_play = ""
 
 [node name="Banana9" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(275.5, 239)
 scale = Vector2(0.5, 0.5)
+animation_to_play = ""
 
 [node name="Enemy" parent="TileMap" instance=ExtResource("3_ljykw")]
 position = Vector2(292, 154)
