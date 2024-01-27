@@ -4,8 +4,12 @@ class_name BaseJoke
 
 @onready var laugh_area: Area2D = $LaughArea
 @onready var laugh_area_shape: CollisionShape2D = $LaughArea/LaughCollisionShape2D
+@onready var timer: Timer = $Timer
 
+@export var happiness_to_add: float = 10
+@export var joke_lifetime: float = 10
 @export var joke_duration: float = 5
+@export var smile_duration: float = 5
 
 var characters_inside: int = 0
 var laugh_disabled: bool = true
@@ -14,6 +18,7 @@ var laugh_disabled: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	laugh_area_shape.disabled = laugh_disabled
+	timer.start(joke_lifetime)
 	#set_process(false)
 
 
@@ -47,3 +52,7 @@ func _on_laugh_area_body_entered(body):
 func _on_laugh_area_body_exited(body):
 	var enemy: EnemyBase = body as EnemyBase
 	enemy.on_laugh_area_exited(self)
+
+
+func _on_timer_timeout():
+	queue_free()
