@@ -7,7 +7,6 @@
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_25ygj")
-animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="CharacterStats" parent="." index="4"]

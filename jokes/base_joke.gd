@@ -6,7 +6,6 @@ class_name BaseJoke
 @onready var effect_collision_shape: CollisionShape2D = $EffectCollisionShape2D
 @onready var laugh_area_shape: CollisionShape2D = $LaughArea/LaughCollisionShape2D
 @onready var life_timer: Timer = $JokeLifeTimer
-@onready var duration_timer: Timer = $JokeDurationTimer
 
 @export var animation_to_play: String
 @export var happiness_to_add: float = 2
@@ -67,7 +66,3 @@ func _on_laugh_area_body_exited(body):
 
 func _on_timer_timeout():
 	queue_free()
-
-
-func _on_joke_duration_timer_timeout():
-	laugh_disabled = true
