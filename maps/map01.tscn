@@ -33,22 +33,52 @@ position = Vector2(130.5, 87)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
+[node name="Enemy3" parent="TileMap" instance=ExtResource("1_r5nb0")]
+position = Vector2(159.5, 76.5)
+min_idle_time = 0.5
+max_idle_time = 2.0
+
+[node name="Enemy4" parent="TileMap" instance=ExtResource("1_r5nb0")]
+position = Vector2(90, 67.5)
+min_idle_time = 0.5
+max_idle_time = 2.0
+
+[node name="Enemy5" parent="TileMap" instance=ExtResource("1_r5nb0")]
+position = Vector2(94.5, 145)
+min_idle_time = 0.5
+max_idle_time = 2.0
+
+[node name="Enemy6" parent="TileMap" instance=ExtResource("1_r5nb0")]
+position = Vector2(162, 148)
+min_idle_time = 0.5
+max_idle_time = 2.0
+
+[node name="Enemy7" parent="TileMap" instance=ExtResource("1_r5nb0")]
+position = Vector2(125, 178.5)
+min_idle_time = 0.5
+max_idle_time = 2.0
+
 [node name="Banana" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(119.5, 122)
 scale = Vector2(0.5, 0.5)
+metadata/_edit_lock_ = true
 
 [node name="Banana2" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(139, 141)
 scale = Vector2(0.5, 0.5)
+metadata/_edit_lock_ = true
 
 [node name="Banana3" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(113, 139.5)
 scale = Vector2(0.5, 0.5)
+metadata/_edit_lock_ = true
 
 [node name="Banana4" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(101, 72)
 scale = Vector2(0.5, 0.5)
+metadata/_edit_lock_ = true
 
 [node name="Banana5" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(125.5, 152.5)
 scale = Vector2(0.5, 0.5)
+metadata/_edit_lock_ = true
