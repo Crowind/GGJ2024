@@ -53,3 +53,7 @@ func _deploy_joke(joke:Node):
 	
 	tilemap.add_child(joke)
 
+
+
+func _on_timer_timeout():
+	_dispatch_laughter(Vector2(randf_range(0,1),randf_range(0,1)))
