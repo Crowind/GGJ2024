@@ -165,7 +165,7 @@ func apply_laugh(laugh_value: float, smile_duration: float) -> bool:
 			animated_sprite.play("smile")
 			change_state_timer.start(smile_duration)
 			laugh_contagion_disabled = false
-			emit_signal("on_laughing", global_position)
+			emit_signal("on_laughing", get_normalized_poisition_on_map())
 			return true
 		else:
 			print("scherzo visto ma non rido ancora: " + name + ", " + str(stats.happiness))
