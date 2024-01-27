@@ -52,7 +52,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ol3kw"]
-radius = 3.0
+radius = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cn25x"]
 radius = 28.0713
@@ -62,7 +62,7 @@ animation_to_play = "slide_on_banana"
 happiness_to_add = 10.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-position = Vector2(3, -13)
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_bu83j")
 animation = &"idle"
 autoplay = "idle"
