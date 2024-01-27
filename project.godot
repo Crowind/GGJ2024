@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="Ggj 2024"
-run/main_scene="res://maps/map01.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,19 +18,19 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=960
 window/size/viewport_height=540
+mouse_cursor/custom_image="res://gfx/Assets/UI/cursor.png"
 
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
-[file_customization]
+[input]
 
-folder_colors={
-"res://characters/": "purple",
-"res://gfx/": "yellow",
-"res://jokes/": "red",
-"res://maps/": "green"
+joke_cycle={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
 }
 
 [layer_names]

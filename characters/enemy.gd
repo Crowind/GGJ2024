@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name EnemyBase
 
+signal on_laughing(laugh_position: Vector2)
+
 var speed = 100.0
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
@@ -157,6 +159,7 @@ func on_laugh_area_entered(joke: BaseJoke):
 			animated_sprite.play("smile")
 			timer.start(joke.smile_duration)
 			laugh_contagion_disabled = false
+			emit_signal("on_laughing", global_position)
 		else:
 			print("scherzo visto ma non rido ancora: " + str(stats.happiness))
 
