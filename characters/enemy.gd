@@ -5,6 +5,7 @@ class_name EnemyBase
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var timer: Timer = $Timer
+@onready var animated_sprite = $AnimatedSprite2D
 
 # temp, understand how to do this correctly
 @export var min_rand: Vector2 = Vector2(0, 0)
@@ -26,7 +27,12 @@ var current_state: State = State.Idle
 
 func _ready():
 	timer.start(randf_range(min_idle_time, max_idle_time))
+	animated_sprite.play("idle_down")
 
+
+func _process(_delta):
+	_update_animations()
+	
 
 func _physics_process(delta):
 	match current_state:
@@ -36,9 +42,26 @@ func _physics_process(delta):
 				var agent_position: Vector2 = global_position
 				var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 				navigation_agent.velocity = (next_path_position - agent_position).normalized() * movement_delta
-				
 			else:
 				_on_navigation_agent_2d_target_reached()
+
+
+func _update_animations():
+	if !velocity.is_zero_approx():
+		var angle_deg = rad_to_deg(velocity.angle())
+		#print(str(angle_deg))
+		if (angle_deg < 0 && angle_deg >= -60) || (angle_deg >= 0 && angle_deg <= 60):
+			animated_sprite.play("walk_side")
+			animated_sprite.flip_h = false
+		elif (angle_deg <= 180 && angle_deg >= 120) || (angle_deg >= -180 && angle_deg <= -120):
+			animated_sprite.play("walk_side")
+			animated_sprite.flip_h = true
+		elif angle_deg > 60 && angle_deg < 120:
+			animated_sprite.play("walk_down")
+		else:
+			animated_sprite.play("walk_up")
+	else:
+		animated_sprite.play("idle_down")
 
 
 func _choose_next_state():
@@ -68,7 +91,7 @@ func _on_navigation_agent_2d_navigation_finished():
 
 
 func _on_navigation_agent_2d_target_reached():
-	print("Target Reached")
+	#print("Target Reached")
 	timer.start(randf_range(min_idle_time, max_idle_time))
 	current_state = State.Idle
 

@@ -27,105 +27,98 @@ min_idle_time = 0.5
 max_idle_time = 2.0
 
 [node name="Enemy2" parent="." instance=ExtResource("1_r5nb0")]
-position = Vector2(97, 48)
+position = Vector2(139, 50)
 speed = 2000.0
 max_rand = Vector2(300, 200)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
 [node name="Enemy3" parent="." instance=ExtResource("1_r5nb0")]
-position = Vector2(132, 40)
+position = Vector2(104, 41)
 speed = 2000.0
 max_rand = Vector2(300, 200)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
 [node name="Enemy4" parent="." instance=ExtResource("1_r5nb0")]
-position = Vector2(155, 75)
+position = Vector2(66, 104)
 speed = 2000.0
 max_rand = Vector2(300, 200)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
 [node name="Enemy5" parent="." instance=ExtResource("1_r5nb0")]
-position = Vector2(180, 54)
+position = Vector2(147, 113)
 speed = 2000.0
 max_rand = Vector2(300, 200)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
 [node name="Enemy6" parent="." instance=ExtResource("1_r5nb0")]
-position = Vector2(71, 106)
+position = Vector2(182, 49)
 speed = 2000.0
 max_rand = Vector2(300, 200)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
 [node name="Enemy7" parent="." instance=ExtResource("1_r5nb0")]
-position = Vector2(126, 110)
+position = Vector2(162, 79)
 speed = 2000.0
 max_rand = Vector2(300, 200)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
 [node name="Enemy8" parent="." instance=ExtResource("1_r5nb0")]
-position = Vector2(166, 27)
+position = Vector2(107, 108)
 speed = 2000.0
 max_rand = Vector2(300, 200)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
 [node name="Enemy9" parent="." instance=ExtResource("1_r5nb0")]
-position = Vector2(83, 19)
+position = Vector2(26, 35)
 speed = 2000.0
 max_rand = Vector2(300, 200)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
 [node name="Enemy10" parent="." instance=ExtResource("1_r5nb0")]
-position = Vector2(220, 41)
+position = Vector2(26, 87)
 speed = 2000.0
 max_rand = Vector2(300, 200)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
 [node name="Enemy11" parent="." instance=ExtResource("1_r5nb0")]
-position = Vector2(51, 166)
+position = Vector2(25, 175)
 speed = 2000.0
 max_rand = Vector2(300, 200)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
 [node name="Enemy12" parent="." instance=ExtResource("1_r5nb0")]
-position = Vector2(92, 179)
+position = Vector2(71, 170)
 speed = 2000.0
 max_rand = Vector2(300, 200)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
 [node name="Enemy13" parent="." instance=ExtResource("1_r5nb0")]
-position = Vector2(147, 161)
+position = Vector2(108, 180)
 speed = 2000.0
 max_rand = Vector2(300, 200)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
 [node name="Enemy14" parent="." instance=ExtResource("1_r5nb0")]
-position = Vector2(184, 177)
+position = Vector2(142, 173)
 speed = 2000.0
 max_rand = Vector2(300, 200)
 min_idle_time = 0.5
 max_idle_time = 2.0
 
 [node name="Enemy15" parent="." instance=ExtResource("1_r5nb0")]
-position = Vector2(23, 94)
-speed = 2000.0
-max_rand = Vector2(300, 200)
-min_idle_time = 0.5
-max_idle_time = 2.0
-
-[node name="Enemy16" parent="." instance=ExtResource("1_r5nb0")]
-position = Vector2(27, 47)
+position = Vector2(232, 142)
 speed = 2000.0
 max_rand = Vector2(300, 200)
 min_idle_time = 0.5
