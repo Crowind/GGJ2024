@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp17qc6e3dbgv"]
+
+[ext_resource type="PackedScene" uid="uid://bt7d6dj4gs6p1" path="res://characters/enemy.tscn" id="1_42c72"]
+[ext_resource type="SpriteFrames" uid="uid://qgg7sg5p0h52" path="res://characters/animations/normal_man_sprite_frames.tres" id="2_1no32"]
+
+[node name="Enemy" instance=ExtResource("1_42c72")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_1no32")
+animation = &"idle_down"
+autoplay = "idle_down"
+
+[node name="CharacterStats" parent="." index="4"]
+humor = 1
+movement_speed = 1
+
+[node name="LaughParticles" parent="." index="7"]
+visible = true

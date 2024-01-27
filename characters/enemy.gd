@@ -11,6 +11,7 @@ var speed = 100.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var stats: CharacterStats = $CharacterStats
 @onready var laugh_contagion_collision: CollisionShape2D = $LaughContagionArea2D/LaughContagionCollisionShape2D
+@onready var laugh_particles: GPUParticles2D = $LaughParticles
 
 var tile_map: TileMap
 var min_rand: Vector2
@@ -46,6 +47,8 @@ func _ready():
 	animated_sprite.play("idle_down")
 	speed = stats.speed_enum_to_speed()
 	laugh_contagion_collision.disabled = laugh_contagion_disabled
+	laugh_particles.visible = true
+	laugh_particles.emitting = false
 
 
 func _process(_delta):
@@ -109,6 +112,7 @@ func _create_path():
 func _on_timer_timeout():
 	laugh_contagion_disabled = true
 	current_joke = null
+	laugh_particles.emitting = false
 	_create_path()
 
 
@@ -128,8 +132,9 @@ func _on_navigation_agent_2d_path_changed():
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
-	velocity = safe_velocity
-	move_and_slide()
+	if current_state == State.Walking:
+		velocity = safe_velocity
+		move_and_slide()
 
 
 func _stop_immediately():
@@ -144,12 +149,12 @@ func get_normalized_poisition_on_map() -> Vector2:
 func on_joke_entered(joke: BaseJoke):
 	print("on joke entered: " + name)
 	current_state = State.Suffering
-	animated_sprite.play("suffering")
+	animated_sprite.play(joke.animation_to_play)
 	_stop_immediately()
 	change_state_timer.start(joke.joke_duration)
 
 
-func on_joke_exited(joke: BaseJoke):
+func on_joke_exited(_joke: BaseJoke):
 	print("on joke exited: " + name)
 
 
@@ -165,6 +170,7 @@ func apply_laugh(laugh_value: float, smile_duration: float) -> bool:
 			animated_sprite.play("smile")
 			change_state_timer.start(smile_duration)
 			laugh_contagion_disabled = false
+			laugh_particles.emitting = true
 			emit_signal("on_laughing", get_normalized_poisition_on_map())
 			return true
 		else:
@@ -186,7 +192,7 @@ func on_other_char_laugh_seen(joke: BaseJoke):
 	apply_laugh(stats.happines_to_add_on_joke_seen, joke.smile_duration)
 
 
-func on_laugh_area_exited(joke: BaseJoke):
+func on_laugh_area_exited(_joke: BaseJoke):
 	print("smetti di ridere stronzo!!!: " + name)
 
 

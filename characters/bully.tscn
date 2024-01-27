@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://djop1845kydlc"]
+
+[ext_resource type="PackedScene" uid="uid://bt7d6dj4gs6p1" path="res://characters/enemy.tscn" id="1_g2wfv"]
+[ext_resource type="SpriteFrames" uid="uid://ci8f4vsk5imef" path="res://characters/animations/bully_sprite_frames.tres" id="2_25ygj"]
+
+[node name="Enemy" instance=ExtResource("1_g2wfv")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_25ygj")
+animation = &"idle_down"
+autoplay = "idle_down"
+
+[node name="CharacterStats" parent="." index="4"]
+humor = 2
+min_happiness = 1.0
+max_happiness = 3.0
+
+[node name="LaughParticles" parent="." index="7"]
+visible = true
