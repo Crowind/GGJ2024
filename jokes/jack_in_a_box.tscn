@@ -52,6 +52,7 @@ radius = 101.71
 
 [node name="Joke" instance=ExtResource("1_wxaw4")]
 z_index = 2
+type = 3
 animation_to_play = "jack_in_a_box"
 
 [node name="AnimatedSprite2D" parent="." index="0"]

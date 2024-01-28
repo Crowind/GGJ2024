@@ -24,8 +24,13 @@ enum Speed
 @export var happiness_treshold: float = 7
 @export var movement_speed: Speed
 @export var happines_to_add_on_joke_seen = 2
+@export var happines_damage_on_fight = -2
 
-var happiness: float
+var happiness: float:
+	set(value):
+		happiness = clampf(value, 0, 10)
+	get:
+		return happiness
 
 
 # Called when the node enters the scene tree for the first time.

@@ -4,12 +4,16 @@
 [ext_resource type="SpriteFrames" uid="uid://ci8f4vsk5imef" path="res://characters/animations/bully_sprite_frames.tres" id="2_25ygj"]
 
 [node name="Enemy" instance=ExtResource("1_g2wfv")]
+aggressive_with = Array[int]([2, 3])
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_25ygj")
 autoplay = "idle_down"
 
-[node name="CharacterStats" parent="." index="4"]
+[node name="CharacterStats" parent="." index="3"]
 humor = 2
 min_happiness = 1.0
 max_happiness = 3.0
+
+[node name="CharacterDetectionArea2D" parent="." index="11"]
+monitoring = true
