@@ -9,6 +9,7 @@ fight_duration = 3.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_25ygj")
+animation = &"down_on_manhole"
 autoplay = "idle_down"
 
 [node name="CharacterStats" parent="." index="3"]

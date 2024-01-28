@@ -1,6 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bunh00owfi02u"]
+[gd_scene load_steps=13 format=3 uid="uid://bunh00owfi02u"]
 
 [ext_resource type="PackedScene" uid="uid://c11p23vtdxl1o" path="res://jokes/base_joke.tscn" id="1_kodpu"]
+[ext_resource type="AudioStream" uid="uid://fayq1f3y5nkg" path="res://audio/sfx/cacca.wav" id="2_i4uuf"]
+[ext_resource type="AudioStream" uid="uid://b50uplct2adl0" path="res://audio/sfx/piazza cacca.wav" id="2_qc23b"]
 [ext_resource type="Texture2D" uid="uid://ck3fwmjwg2ear" path="res://gfx/assets/Tile_actions.png" id="2_uox74"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4ud0"]
@@ -60,8 +62,12 @@ radius = 56.4358
 [node name="Joke" instance=ExtResource("1_kodpu")]
 z_index = 1
 animation_to_play = "shit_happens"
-happiness_to_add = 4.0
+happiness_to_add = 5.0
+happiness_to_remove = -3.0
 joke_lifetime = 13.0
+smile_duration = 4.0
+place_audio = ExtResource("2_qc23b")
+triggered_audio = ExtResource("2_i4uuf")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 z_index = 1

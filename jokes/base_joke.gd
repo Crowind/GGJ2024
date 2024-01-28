@@ -16,6 +16,7 @@ enum Types
 @onready var laugh_area_shape: CollisionShape2D = $LaughArea/LaughCollisionShape2D
 @onready var life_timer: Timer = $JokeLifeTimer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var animation_to_play: String
 @export var happiness_to_add: float = 2
@@ -24,6 +25,8 @@ enum Types
 @export var joke_duration: float = 5
 @export var smile_duration: float = 5
 @export var max_usages = 1
+@export var place_audio: AudioStream
+@export var triggered_audio: AudioStream
 
 var characters_affected: int = 0
 var characters_inside: int = 0
@@ -36,7 +39,9 @@ func _ready():
 	effect_collision_shape.disabled = effect_disabled
 	laugh_area_shape.disabled = laugh_disabled
 	life_timer.start(joke_lifetime)
-	#set_process(false)
+	if place_audio != null:
+		audio_player.stream = place_audio
+		audio_player.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,6 +61,9 @@ func _on_body_entered(body):
 		enemy.on_joke_entered(self)
 		if characters_affected == max_usages:
 			animated_sprite.play("triggered")
+			if triggered_audio != null:
+				audio_player.stream = triggered_audio
+				audio_player.play()
 
 
 func _on_body_exited(body):
