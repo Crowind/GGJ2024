@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ectspwnx4ixb"
-path="res://.godot/imported/Cittadino_1.png-d2d588f788586adbf7f97c05458ae14a.ctex"
+path="res://.godot/imported/Cittadino_1.png-8abcafe393c7e5d88b17b2386f50604c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/assets/Characters/Cittadino_1.png"
-dest_files=["res://.godot/imported/Cittadino_1.png-d2d588f788586adbf7f97c05458ae14a.ctex"]
+source_file="res://gfx/Assets/Characters/Cittadino_1.png"
+dest_files=["res://.godot/imported/Cittadino_1.png-8abcafe393c7e5d88b17b2386f50604c.ctex"]
 
 [params]
 
