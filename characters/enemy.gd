@@ -28,6 +28,9 @@ var max_rand: Vector2
 @export var chasing_speed: float = 5000
 @export var fight_duration: float = 1
 
+@onready var fight_particle: PackedScene = preload("res://gfx/vfx/fight_particle.tscn")
+var fight_particle_instance: FightParticle
+
 var current_joke: BaseJoke
 var laugh_contagion_disabled: bool = true
 var can_add_happiness_on_other_laughing_seen: bool = true
@@ -66,8 +69,6 @@ func _ready():
 	animated_sprite.material = animated_sprite.material.duplicate(true)
 
 
-
-
 func _process(delta: float):
 	# basic happiness consumption
 	if current_state != State.Smiling:
@@ -79,11 +80,7 @@ func _process(delta: float):
 	
 	if current_state == State.ChasingTarget:
 		if (target_character.global_position - global_position).length_squared() < 32 * 32:
-			_stop_immediately()
-			current_state = State.Fighting
-			chase_character_timer.stop()
-			target_character.attacked()
-			fight_timer.start(fight_duration)
+			attack()
 
 	var linear_happiness = inverse_lerp(stats.min_happiness,stats.happiness_treshold,stats.happiness)
 	linear_happiness = clampf(linear_happiness,-0.2,1.5)
@@ -290,10 +287,23 @@ func _on_chase_character_timer_timeout():
 	_create_path_for_target()
 
 
+func attack():
+	_stop_immediately()
+	current_state = State.Fighting
+	chase_character_timer.stop()
+	target_character.attacked()
+	fight_timer.start(fight_duration)
+	fight_particle_instance = fight_particle.instantiate()
+	get_parent().add_child(fight_particle_instance)
+	fight_particle_instance.position = global_position + ((target_character.global_position - global_position) / 2)
+
+
 func attacked():
 	stats.happiness += stats.happines_damage_on_fight
 	_stop_immediately()
 	current_state = State.BeenBeated
+	laugh_particles.emitting = false
+	animated_sprite.play("idle_down")
 	change_state_timer.stop()
 	chase_character_timer.stop()
 
@@ -312,6 +322,8 @@ func _on_fight_timer_timeout():
 	current_state = State.Idle
 	speed = stats.speed_enum_to_speed()
 	animated_sprite.self_modulate = Color.WHITE
+	fight_particle_instance.start_destroy()
+	fight_particle_instance = null
 
 
 func _on_mouse_picking_area_2d_input_event(viewport: Viewport, event: InputEvent, shape_idx: int):

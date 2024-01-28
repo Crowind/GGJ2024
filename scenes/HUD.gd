@@ -102,11 +102,8 @@ func _input(event):
 					joke = joke_manhole.instantiate()
 				JokeType.Banana:
 					joke = joke_banana.instantiate()
-
 			var mouse_pos = get_viewport().get_mouse_position()
-			
 			joke.position = mouse_pos
-						
 			bg_updater._deploy_joke(joke)
 
 
