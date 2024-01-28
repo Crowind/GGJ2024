@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://doi5cf6qslvew"]
+
+[ext_resource type="Texture2D" uid="uid://ck3fwmjwg2ear" path="res://gfx/assets/Tile_actions.png" id="1_rp2p4"]
+
+[sub_resource type="Curve" id="Curve_exy8c"]
+_data = [Vector2(0, 0), 0.0, 8.417, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fjk4o"]
+curve = SubResource("Curve_exy8c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jyk3g"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(6, 10, 1)
+angle_min = -53.3
+angle_max = 146.7
+spread = 180.0
+initial_velocity_max = 70.0
+angular_velocity_min = -186.67
+angular_velocity_max = 58.13
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_fjk4o")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oisql"]
+atlas = ExtResource("1_rp2p4")
+region = Rect2(0.134449, 32.2162, 32.4313, 32.1611)
+
+[node name="FightParticle" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 10
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_jyk3g")
+texture = SubResource("AtlasTexture_oisql")
