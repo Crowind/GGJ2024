@@ -43,6 +43,9 @@ func _icon_change():
 
 func _input(event):
 	if event is InputEventMouseButton:
+		
+		
+		
 		if Input.is_action_just_pressed("joke_cycle"):
 			index = (index+1) % JokeType.size()
 			_icon_change()
@@ -60,6 +63,8 @@ func _input(event):
 				JokeType.Banana:
 					joke = joke_banana.instantiate()
 
-			joke.position = event.global_position
+			var mouse_pos = get_viewport().get_mouse_position()
+			
+			joke.position = mouse_pos
 						
 			bg_updater._deploy_joke(joke)

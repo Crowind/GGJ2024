@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://djop1845kydlc"]
+[gd_scene load_steps=3 format=3 uid="uid://d4dnngv3eynpg"]
 
 [ext_resource type="PackedScene" uid="uid://bt7d6dj4gs6p1" path="res://characters/enemy.tscn" id="1_g2wfv"]
 [ext_resource type="SpriteFrames" uid="uid://ci8f4vsk5imef" path="res://characters/animations/bully_sprite_frames.tres" id="2_25ygj"]
@@ -7,7 +7,6 @@
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_25ygj")
-animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="CharacterStats" parent="." index="4"]

@@ -21,6 +21,7 @@ window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="res://gfx/Assets/UI/cursor.png"
+mouse_cursor/custom_image_hotspot=Vector2(25, 25)
 
 [editor]
 
@@ -53,6 +54,10 @@ joke_deploy={
 
 2d_physics/layer_1="characters"
 2d_physics/layer_2="environment"
+2d_physics/layer_5="characters_mouse"
+2d_physics/layer_6="road"
+2d_physics/layer_7="sidewalk"
+2d_physics/layer_8="mouse_inputs"
 
 [physics]
 
