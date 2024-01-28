@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dinbqhsntwpl1"]
+[gd_scene load_steps=9 format=3 uid="uid://x25hylfjvrc7"]
 
 [ext_resource type="PackedScene" uid="uid://c11p23vtdxl1o" path="res://jokes/base_joke.tscn" id="1_8llv8"]
 [ext_resource type="Texture2D" uid="uid://ck3fwmjwg2ear" path="res://gfx/assets/Tile_actions.png" id="2_iekd8"]
@@ -38,17 +38,18 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j76d4"]
-radius = 7.0
+radius = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qwj8a"]
 radius = 89.0056
 
 [node name="Joke" instance=ExtResource("1_8llv8")]
 animation_to_play = "down_on_manhole"
+joke_lifetime = 20.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 z_index = 1
-position = Vector2(0, -13)
+position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_rekyy")
 animation = &"idle"
 autoplay = "idle"

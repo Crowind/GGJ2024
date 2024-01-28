@@ -6,7 +6,7 @@ class_name BaseJoke
 @onready var effect_collision_shape: CollisionShape2D = $EffectCollisionShape2D
 @onready var laugh_area_shape: CollisionShape2D = $LaughArea/LaughCollisionShape2D
 @onready var life_timer: Timer = $JokeLifeTimer
-@onready var duration_timer: Timer = $JokeDurationTimer
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var animation_to_play: String
 @export var happiness_to_add: float = 2
@@ -44,6 +44,8 @@ func _on_body_entered(body):
 		laugh_disabled = false
 		var enemy: EnemyBase = body as EnemyBase
 		enemy.on_joke_entered(self)
+		if characters_affected == max_usages:
+			animated_sprite.play("triggered")
 
 
 func _on_body_exited(body):
@@ -67,7 +69,3 @@ func _on_laugh_area_body_exited(body):
 
 func _on_timer_timeout():
 	queue_free()
-
-
-func _on_joke_duration_timer_timeout():
-	laugh_disabled = true

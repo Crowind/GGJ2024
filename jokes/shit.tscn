@@ -52,7 +52,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n4lvo"]
-radius = 6.0
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_my4kr"]
 radius = 56.4358
@@ -60,6 +60,8 @@ radius = 56.4358
 [node name="Joke" instance=ExtResource("1_kodpu")]
 z_index = 1
 animation_to_play = "shit_happens"
+happiness_to_add = 4.0
+joke_lifetime = 13.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 z_index = 1

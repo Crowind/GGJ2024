@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgnxahrnqcr8o"]
+[gd_scene load_steps=10 format=3 uid="uid://dkouapabwpqkh"]
 
 [ext_resource type="PackedScene" uid="uid://c11p23vtdxl1o" path="res://jokes/base_joke.tscn" id="1_wxaw4"]
 [ext_resource type="Texture2D" uid="uid://ck3fwmjwg2ear" path="res://gfx/assets/Tile_actions.png" id="2_jhu54"]
@@ -51,6 +51,8 @@ radius = 57.5587
 radius = 101.71
 
 [node name="Joke" instance=ExtResource("1_wxaw4")]
+z_index = 2
+animation_to_play = "jack_in_a_box"
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 z_index = 2

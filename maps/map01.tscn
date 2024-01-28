@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cemihl8j566a7"]
+[gd_scene load_steps=9 format=3 uid="uid://cemihl8j566a7"]
 
 [ext_resource type="TileSet" uid="uid://dirdjnrfat8ag" path="res://tile_sets/city_tileset.tres" id="1_c2qh1"]
-[ext_resource type="PackedScene" uid="uid://d4dnngv3eynpg" path="res://characters/bully.tscn" id="3_ljykw"]
+[ext_resource type="PackedScene" uid="uid://djop1845kydlc" path="res://characters/bully.tscn" id="3_ljykw"]
 [ext_resource type="PackedScene" uid="uid://bqlu5pp2w7853" path="res://jokes/banana.tscn" id="3_wkcnn"]
-[ext_resource type="PackedScene" uid="uid://bdsrqbou2fisk" path="res://characters/normal_man.tscn" id="4_828d0"]
-[ext_resource type="PackedScene" uid="uid://mbya13ulw6v3" path="res://characters/cock_sucker.tscn" id="5_pjx2a"]
-[ext_resource type="PackedScene" uid="uid://cgnxahrnqcr8o" path="res://jokes/jack_in_a_box.tscn" id="6_olux7"]
+[ext_resource type="PackedScene" uid="uid://dp17qc6e3dbgv" path="res://characters/normal_man.tscn" id="4_828d0"]
+[ext_resource type="PackedScene" uid="uid://cafmj311fl8kx" path="res://characters/cock_sucker.tscn" id="5_pjx2a"]
+[ext_resource type="PackedScene" uid="uid://dkouapabwpqkh" path="res://jokes/jack_in_a_box.tscn" id="6_olux7"]
+[ext_resource type="PackedScene" uid="uid://bunh00owfi02u" path="res://jokes/shit.tscn" id="7_50ywm"]
+[ext_resource type="PackedScene" uid="uid://x25hylfjvrc7" path="res://jokes/manhole.tscn" id="8_1062f"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -29,57 +31,75 @@ layer_1/z_index = 2
 layer_1/tile_data = PackedInt32Array()
 
 [node name="Enemy" parent="TileMap" instance=ExtResource("3_ljykw")]
+y_sort_enabled = true
 position = Vector2(85, 212)
 
 [node name="Enemy2" parent="TileMap" instance=ExtResource("4_828d0")]
+y_sort_enabled = true
 position = Vector2(383, 97)
 
 [node name="Enemy3" parent="TileMap" instance=ExtResource("4_828d0")]
+y_sort_enabled = true
 position = Vector2(86, 339)
 
 [node name="Enemy4" parent="TileMap" instance=ExtResource("3_ljykw")]
+y_sort_enabled = true
 position = Vector2(313, 183)
 
 [node name="Enemy5" parent="TileMap" instance=ExtResource("5_pjx2a")]
+y_sort_enabled = true
 position = Vector2(279, 51)
 
 [node name="Enemy6" parent="TileMap" instance=ExtResource("3_ljykw")]
+y_sort_enabled = true
 position = Vector2(54, 114)
 
 [node name="Enemy7" parent="TileMap" instance=ExtResource("4_828d0")]
+y_sort_enabled = true
 position = Vector2(217, 227)
 
 [node name="Enemy8" parent="TileMap" instance=ExtResource("4_828d0")]
+y_sort_enabled = true
 position = Vector2(290, 343)
 
 [node name="Enemy9" parent="TileMap" instance=ExtResource("5_pjx2a")]
+y_sort_enabled = true
 position = Vector2(628, 118)
 
 [node name="Enemy10" parent="TileMap" instance=ExtResource("3_ljykw")]
-position = Vector2(671, 254)
+y_sort_enabled = true
+position = Vector2(649, 233)
 
 [node name="Enemy11" parent="TileMap" instance=ExtResource("3_ljykw")]
+y_sort_enabled = true
 position = Vector2(581, 367)
 
 [node name="Enemy12" parent="TileMap" instance=ExtResource("3_ljykw")]
+y_sort_enabled = true
 position = Vector2(351, 439)
 
 [node name="Enemy13" parent="TileMap" instance=ExtResource("3_ljykw")]
+y_sort_enabled = true
 position = Vector2(816, 444)
 
 [node name="Enemy14" parent="TileMap" instance=ExtResource("5_pjx2a")]
+y_sort_enabled = true
 position = Vector2(809, 313)
 
 [node name="Enemy15" parent="TileMap" instance=ExtResource("5_pjx2a")]
+y_sort_enabled = true
 position = Vector2(604, 444)
 
 [node name="Enemy16" parent="TileMap" instance=ExtResource("5_pjx2a")]
+y_sort_enabled = true
 position = Vector2(797, 124)
 
 [node name="Enemy17" parent="TileMap" instance=ExtResource("4_828d0")]
+y_sort_enabled = true
 position = Vector2(167, 442)
 
 [node name="Enemy18" parent="TileMap" instance=ExtResource("4_828d0")]
+y_sort_enabled = true
 position = Vector2(512, 77)
 
 [node name="Banana" parent="TileMap" instance=ExtResource("3_wkcnn")]
@@ -112,9 +132,23 @@ position = Vector2(330, 133)
 [node name="Banana9" parent="TileMap" instance=ExtResource("3_wkcnn")]
 position = Vector2(275.5, 239)
 
+[node name="Joke2" parent="TileMap" instance=ExtResource("7_50ywm")]
+position = Vector2(383, 321)
+
+[node name="Joke3" parent="TileMap" instance=ExtResource("7_50ywm")]
+position = Vector2(639, 300)
+
+[node name="Joke4" parent="TileMap" instance=ExtResource("7_50ywm")]
+position = Vector2(453, 217)
+
+[node name="Joke5" parent="TileMap" instance=ExtResource("8_1062f")]
+position = Vector2(183, 348)
+
+[node name="Joke6" parent="TileMap" instance=ExtResource("8_1062f")]
+position = Vector2(359, 175)
+
 [node name="Joke" parent="TileMap" instance=ExtResource("6_olux7")]
-position = Vector2(521, 223)
+position = Vector2(573, 264)
 joke_lifetime = 25.0
-joke_duration = 3.0
 smile_duration = 3.0
 max_usages = 10
