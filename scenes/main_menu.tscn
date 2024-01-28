@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://cglr2li4ml0xn"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_bjnjt"]
-[ext_resource type="Texture2D" uid="uid://cinnuplppwvpl" path="res://gfx/Assets/UI/main menu/fondo.png" id="2_mrh6b"]
-[ext_resource type="Texture2D" uid="uid://dygqmyfd8dcr0" path="res://gfx/Assets/UI/main menu/bara.png" id="3_n2c8d"]
-[ext_resource type="Texture2D" uid="uid://cx6q0vhbxuea" path="res://gfx/Assets/UI/main menu/titolo.png" id="4_wthbh"]
-[ext_resource type="FontFile" uid="uid://dmnw0d1un63mm" path="res://gfx/Assets/UI/font/DePixelHalbfett.ttf" id="5_ewd8i"]
+[ext_resource type="Texture2D" uid="uid://cinnuplppwvpl" path="res://gfx/assets/UI/main menu/fondo.png" id="2_mrh6b"]
+[ext_resource type="Texture2D" uid="uid://dygqmyfd8dcr0" path="res://gfx/assets/UI/main menu/bara.png" id="3_n2c8d"]
+[ext_resource type="Texture2D" uid="uid://cx6q0vhbxuea" path="res://gfx/assets/UI/main menu/titolo.png" id="4_wthbh"]
+[ext_resource type="FontFile" uid="uid://dmnw0d1un63mm" path="res://gfx/assets/UI/font/DePixelHalbfett.ttf" id="5_ewd8i"]
 [ext_resource type="AudioStream" uid="uid://c31o7ofn2wtc1" path="res://audio/CITY ST.wav" id="6_kx3nj"]
 
 [sub_resource type="Theme" id="Theme_tuhm7"]

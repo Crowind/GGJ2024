@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://br74e1c8ano8f"]
+[gd_scene load_steps=60 format=3 uid="uid://br74e1c8ano8f"]
 
 [ext_resource type="Script" path="res://visual_scripts/bg_updater.gd" id="1_lbvqg"]
 [ext_resource type="Texture2D" uid="uid://qkrub1epix6p" path="res://gfx/temp/perlin.jpg" id="3_0kx3p"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bunh00owfi02u" path="res://jokes/shit.tscn" id="9_6gsow"]
 [ext_resource type="PackedScene" uid="uid://dkouapabwpqkh" path="res://jokes/jack_in_a_box.tscn" id="10_35abx"]
 [ext_resource type="PackedScene" uid="uid://x25hylfjvrc7" path="res://jokes/manhole.tscn" id="11_rbsp6"]
+[ext_resource type="AudioStream" uid="uid://c31o7ofn2wtc1" path="res://audio/CITY ST.wav" id="13_al4ek"]
+[ext_resource type="FontFile" uid="uid://dmnw0d1un63mm" path="res://gfx/assets/UI/font/DePixelHalbfett.ttf" id="13_d5ipy"]
 
 [sub_resource type="Environment" id="Environment_770vq"]
 background_mode = 3
@@ -418,6 +420,25 @@ nodes/fragment/connections = PackedInt32Array(2, 0, 4, 2, 4, 0, 5, 0, 3, 0, 6, 2
 shader = SubResource("VisualShader_vn2il")
 shader_parameter/saturation = 0.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6on4v"]
+bg_color = Color(0.447059, 0.560784, 0.713726, 1)
+
+[sub_resource type="Theme" id="Theme_782py"]
+default_font = ExtResource("13_d5ipy")
+default_font_size = 42
+
+[sub_resource type="Theme" id="Theme_osoie"]
+default_font = ExtResource("13_d5ipy")
+default_font_size = 24
+
+[sub_resource type="Theme" id="Theme_weo7i"]
+default_font = ExtResource("13_d5ipy")
+default_font_size = 24
+
+[sub_resource type="Theme" id="Theme_obwyf"]
+default_font = ExtResource("13_d5ipy")
+default_font_size = 32
+
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("viewport", "tilemap")]
 texture_filter = 1
 script = ExtResource("1_lbvqg")
@@ -542,64 +563,81 @@ joke_manhole = ExtResource("11_rbsp6")
 joke_banana = ExtResource("6_5omrn")
 tile_map = NodePath("../TileMap2")
 camera = NodePath("../Camera2D")
-game_duration = 60.0
-cooldown_duration = 3000.0
+cooldown_duration = 2000.0
 
 [node name="EndGamePanel" type="Panel" parent="HUD"]
 visible = false
-offset_left = 170.0
-offset_top = 114.0
-offset_right = 771.0
-offset_bottom = 465.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.0
+offset_top = -192.0
+offset_right = 328.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6on4v")
 
 [node name="Label" type="Label" parent="HUD/EndGamePanel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -121.5
-offset_top = 11.0
-offset_right = 121.5
-offset_bottom = 34.0
+layout_mode = 2
+offset_top = 56.0
+offset_right = 656.0
+offset_bottom = 112.0
 grow_horizontal = 2
-text = "Game finished... ah ah ah ah ah
+theme = SubResource("Theme_782py")
+theme_override_colors/font_color = Color(1, 0.792157, 0.352941, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+text = "WHAT A LAUGH!
 "
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="HUD/EndGamePanel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_top = 71.0
-offset_right = 20.0
-offset_bottom = 94.0
+layout_mode = 2
+offset_top = 136.0
+offset_right = 648.0
+offset_bottom = 176.0
 grow_horizontal = 2
-text = "score
+grow_vertical = 2
+theme = SubResource("Theme_osoie")
+text = "SCORE
 "
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="HUD/EndGamePanel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -21.0
-offset_top = 116.0
-offset_right = 21.0
-offset_bottom = 139.0
+[node name="ScoreLabel" type="Label" parent="HUD/EndGamePanel"]
+layout_mode = 2
+offset_top = 176.0
+offset_right = 648.0
+offset_bottom = 224.0
 grow_horizontal = 2
-text = "score
+theme = SubResource("Theme_weo7i")
+text = "SCORE
 "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button" type="Button" parent="HUD/EndGamePanel"]
-layout_mode = 0
-offset_left = 241.0
-offset_top = 214.0
-offset_right = 372.0
-offset_bottom = 260.0
-text = "Back"
+layout_mode = 2
+offset_top = 296.0
+offset_right = 656.0
+offset_bottom = 337.0
+theme = SubResource("Theme_obwyf")
+theme_override_colors/font_color = Color(1, 0.792157, 0.352941, 1)
+text = "BACK"
+flat = true
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_al4ek")
+volume_db = -24.0
+autoplay = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(506, 268)
 
 [connection signal="gameover" from="HUD" to="." method="_on_hud_gameover"]
 [connection signal="pressed" from="HUD/EndGamePanel/Button" to="." method="_on_button_pressed"]

@@ -38,7 +38,8 @@ func _ready():
 	index = JokeType.Banana
 	_icon_change()
 	game_start = Time.get_ticks_msec()
-	
+
+
 func _process(delta):
 	var coordinates: Vector2i = tile_map.local_to_map(tile_map.get_local_mouse_position())
 	var tile_data: TileData = tile_map.get_cell_tile_data(0, coordinates)
@@ -61,6 +62,7 @@ func _process(delta):
 	if curTime <= 0 && !game_over_emitted:
 		game_over_emitted = true
 		gameover.emit()
+		text.visible = false
 
 
 func _icon_change():
