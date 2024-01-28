@@ -563,6 +563,7 @@ joke_manhole = ExtResource("11_rbsp6")
 joke_banana = ExtResource("6_5omrn")
 tile_map = NodePath("../TileMap2")
 camera = NodePath("../Camera2D")
+game_duration = 60.0
 cooldown_duration = 2000.0
 
 [node name="EndGamePanel" type="Panel" parent="HUD"]

@@ -1,8 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://br74e1c8ano8f"]
 
 [ext_resource type="Texture2D" uid="uid://frp84jtkco1s" path="res://gfx/Assets/trail.png" id="1_io48m"]
-[ext_resource type="Script" path="res://VisualScripts/SubViewport.gd" id="1_k2b52"]
-[ext_resource type="Script" path="res://VisualScripts/Sprite2D_test.gd" id="2_3t0mm"]
 [ext_resource type="Texture2D" uid="uid://qkrub1epix6p" path="res://gfx/temp/perlin.jpg" id="4_4f7pi"]
 [ext_resource type="Texture2D" uid="uid://er6f2i6li8pe" path="res://gfx/temp/Free-Nature-Backgrounds-Pixel-Art6.png" id="5_6kgur"]
 

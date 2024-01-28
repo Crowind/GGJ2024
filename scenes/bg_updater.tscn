@@ -1,7 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://br74e1c8ano8f"]
 
 [ext_resource type="Script" path="res://visual_scripts/bg_updater.gd" id="1_lbvqg"]
-[ext_resource type="Script" path="res://visualScripts/SubViewport.gd" id="2_wtegd"]
 [ext_resource type="Texture2D" uid="uid://qkrub1epix6p" path="res://gfx/temp/perlin.jpg" id="3_0kx3p"]
 [ext_resource type="Texture2D" uid="uid://er6f2i6li8pe" path="res://gfx/temp/Free-Nature-Backgrounds-Pixel-Art6.png" id="4_ldeg5"]
 
