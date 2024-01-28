@@ -396,12 +396,13 @@ position = Vector2(718, 443)
 [node name="Enemy22" parent="TileMap2" instance=ExtResource("5_vupaa")]
 position = Vector2(743, 140)
 
-[node name="HUD" parent="." node_paths=PackedStringArray("bg_updater") instance=ExtResource("8_xlrq8")]
+[node name="HUD" parent="." node_paths=PackedStringArray("bg_updater", "tile_map") instance=ExtResource("8_xlrq8")]
 bg_updater = NodePath("..")
 joke_poo = ExtResource("9_6gsow")
 joke_jack = ExtResource("10_35abx")
 joke_manhole = ExtResource("11_rbsp6")
 joke_banana = ExtResource("6_5omrn")
+tile_map = NodePath("../TileMap2")
 
 [node name="Timer" type="Timer" parent="."]
 

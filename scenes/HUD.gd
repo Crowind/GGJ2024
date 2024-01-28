@@ -11,6 +11,8 @@ extends CanvasLayer
 @export var joke_manhole:PackedScene
 @export var joke_banana:PackedScene
 
+@export var tile_map:TileMap
+
 var index:JokeType
 
 enum JokeType
@@ -26,7 +28,13 @@ func _ready():
 	
 func _process(delta):
 	
-	pass
+	var coordinates:Vector2i = tile_map.local_to_map( tile_map.get_local_mouse_position() )
+	var tile_data:TileData = tile_map.get_cell_tile_data(0,coordinates)
+	
+	if(tile_data!=null):
+		var terrain_Type = tile_data.get_custom_data("TerrainType")
+		var can_click:bool =_compute_color(terrain_Type)
+
 		
 	
 func _icon_change():
@@ -42,16 +50,24 @@ func _icon_change():
 		
 
 func _input(event):
+	
+	if(!(event is InputEventMouseMotion)):
+		print(event)
+	
 	if event is InputEventMouseButton:
 		
-		
-		
+		var coordinates:Vector2i = tile_map.local_to_map( tile_map.get_local_mouse_position() )
+		var tile_data:TileData = tile_map.get_cell_tile_data(0,coordinates)
+		var can_click:bool = false;
+		if(tile_data!=null):
+			var terrain_Type = tile_data.get_custom_data("TerrainType")
+			can_click =_compute_color(terrain_Type)
+
 		if Input.is_action_just_pressed("joke_cycle"):
 			index = (index+1) % JokeType.size()
-			_icon_change()
-			
+			_icon_change()	
 		
-		if Input.is_action_just_pressed("joke_deploy"):
+		if (Input.is_action_just_pressed("joke_deploy") && can_click):
 			var joke:Node;
 			match index:
 				JokeType.Jack:
@@ -68,3 +84,31 @@ func _input(event):
 			joke.position = mouse_pos
 						
 			bg_updater._deploy_joke(joke)
+	
+	
+
+func _compute_color(terrain_type:String ) -> bool:
+	
+	var unblocked = load("res://gfx/assets/UI/cursor.png")
+	var blocked = load("res://gfx/assets/UI/cursor_blocked.png")
+	var is_blocked:bool = false;
+	
+	if (terrain_type == "wall"):
+		is_blocked = true;
+		
+	if (terrain_type == "sidewalk"):
+		if(index == JokeType.Manhole):
+			is_blocked=true
+	if (terrain_type == "road"):
+		if(index == JokeType.Jack || index == JokeType.Poo):
+			is_blocked = true
+			
+	if(is_blocked):
+		Input.set_custom_mouse_cursor(blocked,Input.CURSOR_ARROW, Vector2(25, 25))
+	else:
+		Input.set_custom_mouse_cursor(unblocked,Input.CURSOR_ARROW, Vector2(25, 25))
+	
+	return !is_blocked
+	
+	
+

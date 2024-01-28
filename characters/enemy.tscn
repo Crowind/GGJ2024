@@ -1,10 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bt7d6dj4gs6p1"]
 
 [ext_resource type="Script" path="res://characters/enemy.gd" id="1_d8gr1"]
-[ext_resource type="SpriteFrames" uid="uid://meihwoiibn0d" path="res://characters/animations/empty_sprite_frames.tres" id="2_7sv8p"]
+[ext_resource type="SpriteFrames" path="res://characters/animations/empty_sprite_frames.tres" id="2_7sv8p"]
 [ext_resource type="Script" path="res://characters/subnodes/character_stats.gd" id="3_kn0fj"]
-[ext_resource type="Texture2D" uid="uid://daqey07t1u3k7" path="res://gfx/vfx/Particles_AH.png" id="4_xduwl"]
-[ext_resource type="Texture2D" uid="uid://1wmulwc7v4kq" path="res://gfx/assets/shadow.png" id="5_cjc52"]
+[ext_resource type="Texture2D" uid="uid://daqey07t1u3k7" path="res://gfx/VFX/Particles_AH.png" id="4_xduwl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2nq3s"]
 radius = 4.0
@@ -26,8 +25,11 @@ gravity = Vector3(0, 98, 0)
 scale_min = 0.5
 scale_max = 0.6
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gj0xd"]
+
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 2
+y_sort_enabled = true
 collision_mask = 2
 slide_on_ceiling = false
 floor_stop_on_slope = false
@@ -38,7 +40,6 @@ platform_on_leave = 2
 script = ExtResource("1_d8gr1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 2
 y_sort_enabled = true
 position = Vector2(0, -12)
 sprite_frames = ExtResource("2_7sv8p")
@@ -75,7 +76,7 @@ metadata/_edit_lock_ = true
 
 [node name="LaughParticles" type="GPUParticles2D" parent="."]
 visible = false
-z_index = 3
+z_index = 1
 position = Vector2(0, -51)
 sub_emitter = NodePath(".")
 process_material = SubResource("ParticleProcessMaterial_dmhi7")
@@ -86,11 +87,14 @@ explosiveness = 0.15
 randomness = 0.15
 trail_lifetime = 0.2
 
-[node name="ShadowSprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.384314)
-position = Vector2(0, 5.96046e-08)
-scale = Vector2(0.5625, 0.5)
-texture = ExtResource("5_cjc52")
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 128
+
+[node name="mouseCollision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -12)
+scale = Vector2(1, 1.1)
+shape = SubResource("CapsuleShape2D_gj0xd")
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="path_changed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_path_changed"]
