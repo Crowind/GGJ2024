@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://br74e1c8ano8f"]
+[gd_scene load_steps=53 format=3 uid="uid://br74e1c8ano8f"]
 
 [ext_resource type="Script" path="res://visual_scripts/bg_updater.gd" id="1_lbvqg"]
 [ext_resource type="Texture2D" uid="uid://qkrub1epix6p" path="res://gfx/temp/perlin.jpg" id="3_0kx3p"]
@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bqlu5pp2w7853" path="res://jokes/banana.tscn" id="6_5omrn"]
 [ext_resource type="PackedScene" uid="uid://cicra5qy4h8la" path="res://scenes/HUD.tscn" id="8_xlrq8"]
 [ext_resource type="PackedScene" path="res://jokes/shit.tscn" id="9_6gsow"]
-[ext_resource type="PackedScene" uid="uid://cgnxahrnqcr8o" path="res://jokes/jack_in_a_box.tscn" id="10_35abx"]
-[ext_resource type="PackedScene" uid="uid://dinbqhsntwpl1" path="res://jokes/manhole.tscn" id="11_rbsp6"]
+[ext_resource type="PackedScene" uid="uid://dkouapabwpqkh" path="res://jokes/jack_in_a_box.tscn" id="10_35abx"]
+[ext_resource type="PackedScene" uid="uid://x25hylfjvrc7" path="res://jokes/manhole.tscn" id="11_rbsp6"]
 
 [sub_resource type="Environment" id="Environment_770vq"]
 background_mode = 3
@@ -98,10 +98,18 @@ op_type = 2
 operator = 2
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_5iw4u"]
-constant = 1.5
+constant = 1.2
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_6rq21"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
 
 [sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_w8bo8"]
 default_input_values = [1, Vector2(0.02, 0.02), 2, Vector2(0, 0)]
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_1wnln"]
+constant = 0.5
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_cj671"]
 input_name = "time"
@@ -145,17 +153,25 @@ void fragment() {
 
 
 // FloatConstant:28
-	float n_out28p0 = 1.500000;
+	float n_out28p0 = 1.200000;
 
 
 // VectorOp:27
 	vec4 n_out27p0 = n_out13p0 * vec4(n_out28p0);
 
 
+// FloatConstant:30
+	float n_out30p0 = 0.500000;
+
+
+// VectorOp:29
+	vec4 n_out29p0 = n_out13p0 * vec4(n_out30p0);
+
+
 	vec3 n_out21p0;
 // ColorFunc:21
 	{
-		vec3 c = vec3(n_out13p0.xyz);
+		vec3 c = vec3(n_out29p0.xyz);
 		float max1 = max(c.r, c.g);
 		float max2 = max(max1, c.b);
 		n_out21p0 = vec3(max2, max2, max2);
@@ -237,6 +253,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-958.606, 771.794)
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(100, 360)
@@ -275,9 +292,9 @@ nodes/fragment/18/position = Vector2(-1440, 300)
 nodes/fragment/20/node = SubResource("VisualShaderNodeInput_auugg")
 nodes/fragment/20/position = Vector2(-1520, 460)
 nodes/fragment/21/node = SubResource("VisualShaderNodeColorFunc_v5du7")
-nodes/fragment/21/position = Vector2(-520, 1180)
+nodes/fragment/21/position = Vector2(-240, 1140)
 nodes/fragment/22/node = SubResource("VisualShaderNodeMix_w1s0r")
-nodes/fragment/22/position = Vector2(-180, 900)
+nodes/fragment/22/position = Vector2(0, 940)
 nodes/fragment/23/node = SubResource("VisualShaderNodeVectorOp_2fwvr")
 nodes/fragment/23/position = Vector2(-1240, 220)
 nodes/fragment/24/node = SubResource("VisualShaderNodeInput_huke5")
@@ -290,7 +307,11 @@ nodes/fragment/27/node = SubResource("VisualShaderNodeVectorOp_sfg8v")
 nodes/fragment/27/position = Vector2(-480, 960)
 nodes/fragment/28/node = SubResource("VisualShaderNodeFloatConstant_5iw4u")
 nodes/fragment/28/position = Vector2(-800, 980)
-nodes/fragment/connections = PackedInt32Array(6, 0, 2, 2, 4, 0, 3, 2, 3, 0, 7, 0, 7, 0, 2, 0, 10, 0, 9, 0, 2, 0, 11, 0, 9, 0, 11, 1, 8, 0, 9, 2, 12, 0, 11, 2, 16, 0, 15, 2, 17, 0, 15, 0, 13, 0, 21, 0, 21, 0, 22, 1, 11, 0, 23, 0, 18, 0, 23, 1, 23, 0, 17, 0, 22, 0, 0, 0, 24, 0, 13, 2, 15, 4, 25, 0, 25, 0, 22, 2, 26, 0, 17, 1, 13, 0, 27, 0, 27, 0, 22, 0, 28, 0, 27, 1)
+nodes/fragment/29/node = SubResource("VisualShaderNodeVectorOp_6rq21")
+nodes/fragment/29/position = Vector2(-500, 1140)
+nodes/fragment/30/node = SubResource("VisualShaderNodeFloatConstant_1wnln")
+nodes/fragment/30/position = Vector2(-720, 1280)
+nodes/fragment/connections = PackedInt32Array(6, 0, 2, 2, 4, 0, 3, 2, 3, 0, 7, 0, 7, 0, 2, 0, 10, 0, 9, 0, 2, 0, 11, 0, 9, 0, 11, 1, 8, 0, 9, 2, 12, 0, 11, 2, 16, 0, 15, 2, 17, 0, 15, 0, 21, 0, 22, 1, 11, 0, 23, 0, 18, 0, 23, 1, 23, 0, 17, 0, 22, 0, 0, 0, 24, 0, 13, 2, 15, 4, 25, 0, 25, 0, 22, 2, 26, 0, 17, 1, 13, 0, 27, 0, 27, 0, 22, 0, 28, 0, 27, 1, 13, 0, 29, 0, 30, 0, 29, 1, 29, 0, 21, 0)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dih5y"]
 viewport_path = NodePath("SubViewport")
@@ -301,6 +322,101 @@ shader = SubResource("VisualShader_j2hm4")
 shader_parameter/Perlin_Noise_1 = ExtResource("4_cmb7s")
 shader_parameter/Perlin_Noise_2 = ExtResource("3_0kx3p")
 shader_parameter/Mask = SubResource("ViewportTexture_dih5y")
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_2r3yw"]
+input_name = "texture"
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_sba8s"]
+parameter_name = "saturation"
+hint = 1
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_oq2oi"]
+source = 5
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_t58f3"]
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_xwo73"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0.5, 0.5, 0.5, 0.5)]
+op_type = 5
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_l4cub"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_m74gw"]
+constant = 0.5
+
+[sub_resource type="VisualShader" id="VisualShader_vn2il"]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float saturation : hint_range(0, 1) = 0;
+
+
+
+void fragment() {
+	vec4 n_out4p0;
+// Texture2D:4
+	n_out4p0 = texture(TEXTURE, UV);
+
+
+	vec3 n_out5p0;
+// ColorFunc:5
+	{
+		vec3 c = vec3(n_out4p0.xyz);
+		float max1 = max(c.r, c.g);
+		float max2 = max(max1, c.b);
+		n_out5p0 = vec3(max2, max2, max2);
+	}
+
+
+// FloatConstant:8
+	float n_out8p0 = 0.500000;
+
+
+// VectorOp:7
+	vec4 n_out7p0 = vec4(n_out5p0, 0.0) * vec4(n_out8p0);
+
+
+// FloatParameter:3
+	float n_out3p0 = saturation;
+
+
+// Mix:6
+	vec4 n_out6p0 = mix(n_out7p0, n_out4p0, vec4(n_out3p0));
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out6p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(-21.4696, -22.3702)
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(1040, 260)
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_2r3yw")
+nodes/fragment/2/position = Vector2(-380, 160)
+nodes/fragment/3/node = SubResource("VisualShaderNodeFloatParameter_sba8s")
+nodes/fragment/3/position = Vector2(-360, 280)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_oq2oi")
+nodes/fragment/4/position = Vector2(-100, 20)
+nodes/fragment/5/node = SubResource("VisualShaderNodeColorFunc_t58f3")
+nodes/fragment/5/position = Vector2(200, 40)
+nodes/fragment/6/node = SubResource("VisualShaderNodeMix_xwo73")
+nodes/fragment/6/position = Vector2(780, 260)
+nodes/fragment/7/node = SubResource("VisualShaderNodeVectorOp_l4cub")
+nodes/fragment/7/position = Vector2(441.471, 94.6245)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatConstant_m74gw")
+nodes/fragment/8/position = Vector2(220, 260)
+nodes/fragment/connections = PackedInt32Array(2, 0, 4, 2, 4, 0, 5, 0, 3, 0, 6, 2, 4, 0, 6, 1, 6, 0, 0, 0, 5, 0, 7, 0, 8, 0, 7, 1, 7, 0, 6, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mgcv6"]
+shader = SubResource("VisualShader_vn2il")
+shader_parameter/saturation = 0.0
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("viewport", "tilemap")]
 texture_filter = 1
@@ -331,69 +447,91 @@ layer_1/z_index = 2
 layer_1/tile_data = PackedInt32Array(29, 65537, 7, 27, 65537, 7, 25, 65537, 7, 23, 65537, 7, 21, 65537, 7, 65560, 1, 7, 17, 65537, 7, 15, 65537, 7, 13, 65537, 7, 11, 65537, 7, 9, 65537, 7, 7, 65537, 7, 65548, 1, 7, 524317, 65537, 7, 524316, 65537, 7, 524315, 65537, 7, 524314, 65537, 7, 524313, 65537, 7, 524312, 65537, 7, 589848, 65537, 7, 589849, 65537, 7, 589850, 65537, 7, 589851, 65537, 7, 589852, 65537, 7, 589853, 65537, 7, 851973, 65537, 7, 851970, 65537, 7, 917508, 1, 7)
 
 [node name="Enemy" parent="TileMap2" instance=ExtResource("3_foffr")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(205, 227)
 
 [node name="Enemy4" parent="TileMap2" instance=ExtResource("3_foffr")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(419, 165)
 
 [node name="Enemy5" parent="TileMap2" instance=ExtResource("3_foffr")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(629, 336)
 
 [node name="Enemy6" parent="TileMap2" instance=ExtResource("3_foffr")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(488, 383)
 
 [node name="Enemy7" parent="TileMap2" instance=ExtResource("3_foffr")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(818, 478)
 
 [node name="Enemy8" parent="TileMap2" instance=ExtResource("3_foffr")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(845, 367)
 
 [node name="Enemy9" parent="TileMap2" instance=ExtResource("3_foffr")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(239, 492)
 
 [node name="Enemy2" parent="TileMap2" instance=ExtResource("4_vhj7h")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(374, 300)
 
 [node name="Enemy10" parent="TileMap2" instance=ExtResource("4_vhj7h")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(650, 177)
 
 [node name="Enemy11" parent="TileMap2" instance=ExtResource("4_vhj7h")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(585, 433)
 
 [node name="Enemy12" parent="TileMap2" instance=ExtResource("4_vhj7h")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(339, 426)
 
 [node name="Enemy13" parent="TileMap2" instance=ExtResource("4_vhj7h")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(53, 71)
 
 [node name="Enemy14" parent="TileMap2" instance=ExtResource("4_vhj7h")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(40, 258)
 
 [node name="Enemy15" parent="TileMap2" instance=ExtResource("4_vhj7h")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(897, 141)
 
 [node name="Enemy3" parent="TileMap2" instance=ExtResource("5_vupaa")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(527, 229)
 
 [node name="Enemy16" parent="TileMap2" instance=ExtResource("5_vupaa")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(694, 250)
 
 [node name="Enemy17" parent="TileMap2" instance=ExtResource("5_vupaa")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(268, 161)
 
 [node name="Enemy18" parent="TileMap2" instance=ExtResource("5_vupaa")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(147, 101)
 
 [node name="Enemy19" parent="TileMap2" instance=ExtResource("5_vupaa")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(254, 327)
 
 [node name="Enemy20" parent="TileMap2" instance=ExtResource("5_vupaa")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(490, 498)
 
 [node name="Enemy21" parent="TileMap2" instance=ExtResource("5_vupaa")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(718, 443)
 
 [node name="Enemy22" parent="TileMap2" instance=ExtResource("5_vupaa")]
+material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(743, 140)
 
 [node name="HUD" parent="." node_paths=PackedStringArray("bg_updater", "tile_map") instance=ExtResource("8_xlrq8")]

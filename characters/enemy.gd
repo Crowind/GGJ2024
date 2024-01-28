@@ -63,6 +63,7 @@ func _ready():
 	laugh_particles.visible = true
 	laugh_particles.emitting = false
 
+	animated_sprite.material = animated_sprite.material.duplicate(true)
 
 func _process(_delta):
 	_update_animations()
@@ -76,6 +77,12 @@ func _process(_delta):
 			chase_character_timer.stop()
 			target_character.attacked()
 			fight_timer.start(fight_duration)
+
+	var linear_happiness = inverse_lerp(stats.min_happiness,stats.happiness_treshold,stats.happiness)
+	
+	linear_happiness = clampf(linear_happiness,-0.2,1.5)
+	
+	(animated_sprite.material as ShaderMaterial).set_shader_parameter("saturation", linear_happiness)
 
 
 func _physics_process(delta):

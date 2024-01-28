@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bt7d6dj4gs6p1"]
+[gd_scene load_steps=11 format=3 uid="uid://bt7d6dj4gs6p1"]
 
 [ext_resource type="Script" path="res://characters/enemy.gd" id="1_d8gr1"]
-[ext_resource type="SpriteFrames" uid="uid://meihwoiibn0d" path="res://characters/animations/empty_sprite_frames.tres" id="2_7sv8p"]
+[ext_resource type="Material" uid="uid://bxw08oevapx4v" path="res://gfx/materials/enemy_material_gradient.tres" id="2_1waad"]
+[ext_resource type="SpriteFrames" path="res://characters/animations/empty_sprite_frames.tres" id="2_7sv8p"]
 [ext_resource type="Script" path="res://characters/subnodes/character_stats.gd" id="3_kn0fj"]
-[ext_resource type="Texture2D" uid="uid://daqey07t1u3k7" path="res://gfx/vfx/Particles_AH.png" id="4_xduwl"]
+[ext_resource type="Texture2D" uid="uid://daqey07t1u3k7" path="res://gfx/VFX/Particles_AH.png" id="4_xduwl"]
 [ext_resource type="Texture2D" uid="uid://1wmulwc7v4kq" path="res://gfx/assets/shadow.png" id="5_cjc52"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2nq3s"]
@@ -43,6 +44,7 @@ script = ExtResource("1_d8gr1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2
 y_sort_enabled = true
+material = ExtResource("2_1waad")
 position = Vector2(0, -12)
 sprite_frames = ExtResource("2_7sv8p")
 animation = &"idle_down"

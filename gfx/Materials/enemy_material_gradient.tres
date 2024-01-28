@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bxw08oevapx4v"]
+
+[ext_resource type="Shader" uid="uid://cs2kofbpks7p0" path="res://gfx/Shaders/enemy_shader.tres" id="1_ivpyk"]
+
+[resource]
+shader = ExtResource("1_ivpyk")
+shader_parameter/saturation = 0.0
