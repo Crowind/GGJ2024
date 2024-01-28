@@ -44,6 +44,7 @@ radius = 4.0
 radius = 89.0056
 
 [node name="Joke" instance=ExtResource("1_8llv8")]
+type = 1
 animation_to_play = "down_on_manhole"
 joke_lifetime = 20.0
 

@@ -2,6 +2,15 @@ extends Area2D
 class_name BaseJoke
 
 
+enum Types
+{
+	Shit,
+	Manhole,
+	Banana,
+	JackInABox
+}
+@export var type: Types
+
 @onready var laugh_area: Area2D = $LaughArea
 @onready var effect_collision_shape: CollisionShape2D = $EffectCollisionShape2D
 @onready var laugh_area_shape: CollisionShape2D = $LaughArea/LaughCollisionShape2D

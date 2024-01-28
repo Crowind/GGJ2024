@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt7d6dj4gs6p1"]
+[gd_scene load_steps=10 format=3 uid="uid://bt7d6dj4gs6p1"]
 
 [ext_resource type="Script" path="res://characters/enemy.gd" id="1_d8gr1"]
 [ext_resource type="SpriteFrames" uid="uid://meihwoiibn0d" path="res://characters/animations/empty_sprite_frames.tres" id="2_7sv8p"]
@@ -25,6 +25,9 @@ initial_velocity_max = 80.0
 gravity = Vector3(0, 98, 0)
 scale_min = 0.5
 scale_max = 0.6
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mhx6p"]
+radius = 270.897
 
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 2
@@ -57,8 +60,6 @@ radius = 4.0
 neighbor_distance = 100.0
 max_neighbors = 5
 
-[node name="ChangeStateTimer" type="Timer" parent="."]
-
 [node name="CharacterStats" type="Node" parent="."]
 script = ExtResource("3_kn0fj")
 type = "Normal"
@@ -71,7 +72,17 @@ shape = SubResource("CircleShape2D_6fo1d")
 debug_color = Color(1, 0.505882, 0.901961, 0.419608)
 metadata/_edit_lock_ = true
 
+[node name="ChangeStateTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="NoHappinessAddTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ChaseCharacterTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="FightTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="LaughParticles" type="GPUParticles2D" parent="."]
 visible = false
@@ -92,11 +103,22 @@ position = Vector2(0, 5.96046e-08)
 scale = Vector2(0.5625, 0.5)
 texture = ExtResource("5_cjc52")
 
+[node name="CharacterDetectionArea2D" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterDetectionArea2D"]
+visible = false
+shape = SubResource("CircleShape2D_mhx6p")
+debug_color = Color(0.0470588, 0.701961, 0, 0.419608)
+
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="path_changed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_path_changed"]
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
-[connection signal="timeout" from="ChangeStateTimer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="LaughContagionArea2D" to="." method="_on_laugh_contagion_area_2d_body_entered"]
 [connection signal="body_exited" from="LaughContagionArea2D" to="." method="_on_laugh_contagion_area_2d_body_exited"]
+[connection signal="timeout" from="ChangeStateTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="NoHappinessAddTimer" to="." method="_on_no_happiness_add_timer_timeout"]
+[connection signal="timeout" from="ChaseCharacterTimer" to="." method="_on_chase_character_timer_timeout"]
+[connection signal="timeout" from="FightTimer" to="." method="_on_fight_timer_timeout"]
