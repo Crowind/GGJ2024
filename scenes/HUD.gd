@@ -14,8 +14,8 @@ extends CanvasLayer
 @export var tile_map: TileMap
 @export var camera: Camera2D
 
-@export var cooldown_duration:float
-var last_deploy:float
+@export var cooldown_duration: float
+var last_deploy: float
 
 var index:JokeType
 
@@ -43,9 +43,9 @@ func _process(delta):
 	
 	_change_curson_color(on_char || terrain_ok)
 	
-	var t = (Time.get_ticks_msec() - last_deploy) / cooldown_duration 
-
+	var t: float = (Time.get_ticks_msec() - last_deploy) / cooldown_duration 
 	((get_node("BG") as TextureRect).material as ShaderMaterial).set_shader_parameter("fill",t)
+
 
 func _icon_change():
 	if index == JokeType.Jack:
