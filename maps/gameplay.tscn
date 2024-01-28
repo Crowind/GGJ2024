@@ -542,10 +542,65 @@ joke_manhole = ExtResource("11_rbsp6")
 joke_banana = ExtResource("6_5omrn")
 tile_map = NodePath("../TileMap2")
 camera = NodePath("../Camera2D")
-game_duration = 5.0
+game_duration = 60.0
 cooldown_duration = 3000.0
+
+[node name="EndGamePanel" type="Panel" parent="HUD"]
+visible = false
+offset_left = 170.0
+offset_top = 114.0
+offset_right = 771.0
+offset_bottom = 465.0
+
+[node name="Label" type="Label" parent="HUD/EndGamePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -121.5
+offset_top = 11.0
+offset_right = 121.5
+offset_bottom = 34.0
+grow_horizontal = 2
+text = "Game finished... ah ah ah ah ah
+"
+
+[node name="Label2" type="Label" parent="HUD/EndGamePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 71.0
+offset_right = 20.0
+offset_bottom = 94.0
+grow_horizontal = 2
+text = "score
+"
+
+[node name="Label3" type="Label" parent="HUD/EndGamePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_top = 116.0
+offset_right = 21.0
+offset_bottom = 139.0
+grow_horizontal = 2
+text = "score
+"
+
+[node name="Button" type="Button" parent="HUD/EndGamePanel"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 214.0
+offset_right = 372.0
+offset_bottom = 260.0
+text = "Back"
 
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="gameover" from="HUD" to="." method="_on_hud_gameover"]
+[connection signal="pressed" from="HUD/EndGamePanel/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

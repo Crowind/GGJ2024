@@ -69,6 +69,7 @@ max_neighbors = 5
 [node name="CharacterStats" type="Node" parent="."]
 script = ExtResource("3_kn0fj")
 type = "Normal"
+happiness_consumption_per_sec = -0.05
 
 [node name="LaughContagionArea2D" type="Area2D" parent="."]
 input_pickable = false

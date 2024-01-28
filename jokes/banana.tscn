@@ -61,8 +61,7 @@ radius = 28.0713
 [node name="Banana" instance=ExtResource("1_8rf84")]
 type = 2
 animation_to_play = "slide_on_banana"
-happiness_to_add = 4.0
-happiness_to_remove = -2.0
+happiness_to_add = 5.0
 joke_lifetime = 8.0
 joke_duration = 3.0
 smile_duration = 3.0

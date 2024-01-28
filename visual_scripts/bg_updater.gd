@@ -29,7 +29,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	
 	pass
 
 func _dispatch_laughter(normalized_position:Vector2):
@@ -39,9 +38,8 @@ func _dispatch_laughter(normalized_position:Vector2):
 	currentIndex = (currentIndex+1) % poolsize;
 	
 func _fill_percentage() -> float:
-
-		var count:float = 0
-		var image:Image = viewport.get_texture().get_image()
+		var count: float = 0
+		var image: Image = viewport.get_texture().get_image()
 		var size = image.get_size()
 #
 		for x in range(0,size.x):
@@ -60,4 +58,10 @@ func _on_timer_timeout():
 
 
 func _on_hud_gameover():
+	$HUD/EndGamePanel.visible = true
+	$HUD/EndGamePanel/Label3.text = str(roundi(_fill_percentage() * 100))
+	#get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
+func _on_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
