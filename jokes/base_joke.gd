@@ -19,6 +19,7 @@ enum Types
 
 @export var animation_to_play: String
 @export var happiness_to_add: float = 2
+@export var happiness_to_remove: float = -1
 @export var joke_lifetime: float = 10
 @export var joke_duration: float = 5
 @export var smile_duration: float = 5

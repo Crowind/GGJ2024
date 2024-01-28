@@ -65,7 +65,11 @@ func _ready():
 
 	animated_sprite.material = animated_sprite.material.duplicate(true)
 
-func _process(_delta):
+func _process(delta: float):
+	# basic happiness consumption
+	if current_state != State.Smiling:
+		stats.happiness += stats.happiness_consumption_per_sec * delta
+	
 	_update_animations()
 	if laugh_contagion_disabled != laugh_contagion_collision.disabled:
 		laugh_contagion_collision.disabled = laugh_contagion_disabled
@@ -218,6 +222,7 @@ func on_joke_entered(joke: BaseJoke):
 	current_state = State.Suffering
 	animated_sprite.play(joke.animation_to_play)
 	_stop_immediately()
+	stats.happiness += joke.happiness_to_remove
 	change_state_timer.start(joke.joke_duration)
 	if aggressive_with.find(joke.type) != -1:
 		become_aggressive_when_end_suffering = true
