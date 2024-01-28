@@ -520,7 +520,7 @@ position = Vector2(147, 101)
 
 [node name="Enemy19" parent="TileMap2" instance=ExtResource("5_vupaa")]
 material = SubResource("ShaderMaterial_mgcv6")
-position = Vector2(254, 327)
+position = Vector2(258, 325)
 
 [node name="Enemy20" parent="TileMap2" instance=ExtResource("5_vupaa")]
 material = SubResource("ShaderMaterial_mgcv6")
@@ -534,13 +534,14 @@ position = Vector2(718, 443)
 material = SubResource("ShaderMaterial_mgcv6")
 position = Vector2(743, 140)
 
-[node name="HUD" parent="." node_paths=PackedStringArray("bg_updater", "tile_map") instance=ExtResource("8_xlrq8")]
+[node name="HUD" parent="." node_paths=PackedStringArray("bg_updater", "tile_map", "camera") instance=ExtResource("8_xlrq8")]
 bg_updater = NodePath("..")
 joke_poo = ExtResource("9_6gsow")
 joke_jack = ExtResource("10_35abx")
 joke_manhole = ExtResource("11_rbsp6")
 joke_banana = ExtResource("6_5omrn")
 tile_map = NodePath("../TileMap2")
+camera = NodePath("../Camera2D")
 
 [node name="Timer" type="Timer" parent="."]
 
