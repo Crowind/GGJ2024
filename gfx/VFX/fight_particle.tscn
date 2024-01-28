@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://doi5cf6qslvew"]
 
-[ext_resource type="Texture2D" uid="uid://ck3fwmjwg2ear" path="res://gfx/assets/Tile_actions.png" id="1_rp2p4"]
+[ext_resource type="Texture2D" uid="uid://ck3fwmjwg2ear" path="res://gfx/assets/Tile_actions.png" id="1_bov7w"]
 
 [sub_resource type="Curve" id="Curve_exy8c"]
 _data = [Vector2(0, 0), 0.0, 8.417, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -23,7 +23,7 @@ gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_fjk4o")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oisql"]
-atlas = ExtResource("1_rp2p4")
+atlas = ExtResource("1_bov7w")
 region = Rect2(0.134449, 32.2162, 32.4313, 32.1611)
 
 [node name="FightParticle" type="Node2D"]

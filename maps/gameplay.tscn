@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://mbya13ulw6v3" path="res://characters/cock_sucker.tscn" id="5_vupaa"]
 [ext_resource type="PackedScene" uid="uid://bqlu5pp2w7853" path="res://jokes/banana.tscn" id="6_5omrn"]
 [ext_resource type="PackedScene" uid="uid://cicra5qy4h8la" path="res://scenes/HUD.tscn" id="8_xlrq8"]
-[ext_resource type="PackedScene" path="res://jokes/shit.tscn" id="9_6gsow"]
+[ext_resource type="PackedScene" uid="uid://bunh00owfi02u" path="res://jokes/shit.tscn" id="9_6gsow"]
 [ext_resource type="PackedScene" uid="uid://dkouapabwpqkh" path="res://jokes/jack_in_a_box.tscn" id="10_35abx"]
 [ext_resource type="PackedScene" uid="uid://x25hylfjvrc7" path="res://jokes/manhole.tscn" id="11_rbsp6"]
 
