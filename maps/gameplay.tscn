@@ -520,7 +520,7 @@ position = Vector2(147, 101)
 
 [node name="Enemy19" parent="TileMap2" instance=ExtResource("5_vupaa")]
 material = SubResource("ShaderMaterial_mgcv6")
-position = Vector2(254, 327)
+position = Vector2(258, 325)
 
 [node name="Enemy20" parent="TileMap2" instance=ExtResource("5_vupaa")]
 material = SubResource("ShaderMaterial_mgcv6")
