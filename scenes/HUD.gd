@@ -14,6 +14,9 @@ extends CanvasLayer
 @export var tile_map: TileMap
 @export var camera: Camera2D
 
+@export var cooldown_duration:float
+var last_deploy:float
+
 var index:JokeType
 
 enum JokeType
@@ -39,7 +42,10 @@ func _process(delta):
 		terrain_ok = _check_terrain(terrain_Type)
 	
 	_change_curson_color(on_char || terrain_ok)
+	
+	var t = (Time.get_ticks_msec() - last_deploy) / cooldown_duration 
 
+	((get_node("BG") as TextureRect).material as ShaderMaterial).set_shader_parameter("fill",t)
 
 func _icon_change():
 	if index == JokeType.Jack:
@@ -86,6 +92,8 @@ func _input(event):
 			terrain_ok = _check_terrain(terrain_Type)
 			
 		var can_click: bool = !(on_char || terrain_ok)
+	
+		can_click = can_click && (last_deploy + cooldown_duration < Time.get_ticks_msec())
 
 		if Input.is_action_just_pressed("joke_cycle"):
 			index = (index+1) % JokeType.size()
@@ -108,6 +116,7 @@ func _input(event):
 			joke.position = mouse_pos
 						
 			bg_updater._deploy_joke(joke)
+			last_deploy= Time.get_ticks_msec()
 
 
 func _check_terrain(terrain_type: String) -> bool:

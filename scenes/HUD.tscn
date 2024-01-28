@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cicra5qy4h8la"]
+[gd_scene load_steps=9 format=3 uid="uid://cicra5qy4h8la"]
 
 [ext_resource type="Texture2D" uid="uid://dyv51n5r8fudl" path="res://gfx/assets/UI/circlepixel.png" id="1_0wdi0"]
 [ext_resource type="Script" path="res://scenes/HUD.gd" id="1_ljx8e"]
@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://beglfdmptwcrf" path="res://gfx/assets/UI/pixel_jack.png" id="3_tcrk2"]
 [ext_resource type="Texture2D" uid="uid://dnyd7kpeo30fn" path="res://gfx/assets/UI/pixel_poo.png" id="4_55qe8"]
 [ext_resource type="Texture2D" uid="uid://cb7oweskt2ayl" path="res://gfx/assets/UI/pixel_manhole.png" id="5_wtimf"]
+[ext_resource type="Shader" path="res://gfx/Shaders/hud_cooldown.gdshader" id="6_ltlts"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0e67"]
+shader = ExtResource("6_ltlts")
+shader_parameter/fill = 1.1
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_ljx8e")
@@ -13,8 +18,10 @@ icon_banana = ExtResource("2_f3rro")
 icon_jack = ExtResource("3_tcrk2")
 icon_poo = ExtResource("4_55qe8")
 icon_manhole = ExtResource("5_wtimf")
+cooldown_duration = 3000.0
 
 [node name="BG" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_s0e67")
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
