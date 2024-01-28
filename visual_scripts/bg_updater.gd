@@ -60,4 +60,7 @@ func _on_timer_timeout():
 
 
 func _on_hud_gameover():
+	var rid = viewport.get_texture().get_rid()
+	viewport.get_texture().draw(rid,Vector2.ZERO,Color.TRANSPARENT)
+	
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
