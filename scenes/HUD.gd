@@ -1,4 +1,7 @@
 extends CanvasLayer
+
+signal gameover
+
 @export var icon_banana: Texture2D
 @export var icon_jack: Texture2D
 @export var icon_poo: Texture2D
@@ -13,6 +16,10 @@ extends CanvasLayer
 
 @export var tile_map: TileMap
 @export var camera: Camera2D
+@export var text:RichTextLabel
+
+@export var game_duration:float
+@export var game_start:float
 
 @export var cooldown_duration:float
 var last_deploy:float
@@ -29,6 +36,7 @@ enum JokeType
 func _ready():
 	index = JokeType.Banana
 	_icon_change()
+	game_start = Time.get_ticks_msec()
 	
 func _process(delta):
 	var coordinates: Vector2i = tile_map.local_to_map(tile_map.get_local_mouse_position())
@@ -46,6 +54,13 @@ func _process(delta):
 	var t = (Time.get_ticks_msec() - last_deploy) / cooldown_duration 
 
 	((get_node("BG") as TextureRect).material as ShaderMaterial).set_shader_parameter("fill",t)
+	
+	var curTime:float = game_duration - (Time.get_ticks_msec() - game_start)/1000;
+	text.text =  String.num(curTime, 1 )
+	
+	if(curTime<=0):
+		gameover.emit()
+	
 
 func _icon_change():
 	if index == JokeType.Jack:
