@@ -49,12 +49,15 @@ func _fill_percentage() -> float:
 				count += image.get_pixel(x,y).a
 
 		return count/(size.x*size.y)
-	
-func _deploy_joke(joke:Node):
-	
-	tilemap.add_child(joke)
 
+
+func _deploy_joke(joke:Node):
+	tilemap.add_child(joke)
 
 
 func _on_timer_timeout():
 	_dispatch_laughter(Vector2(randf_range(0,1),randf_range(0,1)))
+
+
+func _on_hud_gameover():
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
