@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-signal gameover
+signal gameover(score)
 
 @export var icon_banana: Texture2D
 @export var icon_jack: Texture2D
@@ -25,6 +25,7 @@ signal gameover
 var last_deploy: float
 
 var index:JokeType
+var game_over_emitted: bool = false
 
 enum JokeType
 {
@@ -57,9 +58,9 @@ func _process(delta):
 	var curTime:float = game_duration - (Time.get_ticks_msec() - game_start)/1000;
 	text.text =  String.num(curTime, 1 )
 	
-	if(curTime<=0):
+	if curTime <= 0 && !game_over_emitted:
+		game_over_emitted = true
 		gameover.emit()
-	
 
 
 func _icon_change():

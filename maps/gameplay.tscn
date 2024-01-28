@@ -542,8 +542,10 @@ joke_manhole = ExtResource("11_rbsp6")
 joke_banana = ExtResource("6_5omrn")
 tile_map = NodePath("../TileMap2")
 camera = NodePath("../Camera2D")
+game_duration = 5.0
 cooldown_duration = 3000.0
 
 [node name="Timer" type="Timer" parent="."]
 
+[connection signal="gameover" from="HUD" to="." method="_on_hud_gameover"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
