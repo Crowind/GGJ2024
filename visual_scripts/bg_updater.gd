@@ -6,6 +6,7 @@ var brushes:Array[Node]
 @export var poolsize:int
 @export var viewport:SubViewport
 @export var tilemap:TileMap
+
 var currentIndex:int
 
 

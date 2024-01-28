@@ -21,8 +21,8 @@ signal gameover
 @export var game_duration:float
 @export var game_start:float
 
-@export var cooldown_duration:float
-var last_deploy:float
+@export var cooldown_duration: float
+var last_deploy: float
 
 var index:JokeType
 
@@ -51,8 +51,7 @@ func _process(delta):
 	
 	_change_curson_color(on_char || terrain_ok)
 	
-	var t = (Time.get_ticks_msec() - last_deploy) / cooldown_duration 
-
+	var t: float = (Time.get_ticks_msec() - last_deploy) / cooldown_duration 
 	((get_node("BG") as TextureRect).material as ShaderMaterial).set_shader_parameter("fill",t)
 	
 	var curTime:float = game_duration - (Time.get_ticks_msec() - game_start)/1000;
@@ -61,6 +60,7 @@ func _process(delta):
 	if(curTime<=0):
 		gameover.emit()
 	
+
 
 func _icon_change():
 	if index == JokeType.Jack:

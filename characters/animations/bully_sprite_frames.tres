@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=36 format=3 uid="uid://ci8f4vsk5imef"]
+[gd_resource type="SpriteFrames" load_steps=35 format=3 uid="uid://ci8f4vsk5imef"]
 
 [ext_resource type="Texture2D" uid="uid://b7vev6ygg0jcd" path="res://gfx/assets/Characters/bullo.png" id="1_8q4qd"]
 
@@ -17,10 +17,6 @@ region = Rect2(96, 128, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6hqdi"]
 atlas = ExtResource("1_8q4qd")
 region = Rect2(128, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ehh8"]
-atlas = ExtResource("1_8q4qd")
-region = Rect2(0, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vpsh6"]
 atlas = ExtResource("1_8q4qd")
@@ -152,9 +148,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6hqdi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1ehh8")
 }],
 "loop": false,
 "name": &"down_on_manhole",

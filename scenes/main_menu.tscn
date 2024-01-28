@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://cglr2li4ml0xn"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_bjnjt"]
+[ext_resource type="Texture2D" uid="uid://cinnuplppwvpl" path="res://gfx/Assets/UI/main menu/fondo.png" id="2_mrh6b"]
+[ext_resource type="Texture2D" uid="uid://dygqmyfd8dcr0" path="res://gfx/Assets/UI/main menu/bara.png" id="3_n2c8d"]
+[ext_resource type="Texture2D" uid="uid://cx6q0vhbxuea" path="res://gfx/Assets/UI/main menu/titolo.png" id="4_wthbh"]
+[ext_resource type="FontFile" uid="uid://dmnw0d1un63mm" path="res://gfx/Assets/UI/font/DePixelHalbfett.ttf" id="5_ewd8i"]
+
+[sub_resource type="Theme" id="Theme_tuhm7"]
+default_font = ExtResource("5_ewd8i")
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bjnjt")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 960.0
+offset_bottom = 544.0
+
+[node name="Fondo" type="Sprite2D" parent="CenterContainer"]
+position = Vector2(481.944, 270)
+scale = Vector2(0.504225, 0.514815)
+texture = ExtResource("2_mrh6b")
+
+[node name="Bara" type="Sprite2D" parent="CenterContainer"]
+position = Vector2(456, 256)
+texture = ExtResource("3_n2c8d")
+
+[node name="Titolo" type="Sprite2D" parent="CenterContainer"]
+position = Vector2(480, 256)
+scale = Vector2(0.42037, 0.42037)
+texture = ExtResource("4_wthbh")
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 2
+offset_left = 128.0
+offset_top = 408.0
+offset_right = 252.0
+offset_bottom = 459.0
+theme = SubResource("Theme_tuhm7")
+theme_override_colors/font_color = Color(0.882353, 0.764706, 0.584314, 1)
+theme_override_font_sizes/font_size = 34
+text = "PLAY"
+flat = true
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 2
+offset_left = 712.0
+offset_top = 408.0
+offset_right = 836.0
+offset_bottom = 459.0
+theme = SubResource("Theme_tuhm7")
+theme_override_colors/font_color = Color(0.882353, 0.764706, 0.584314, 1)
+theme_override_font_sizes/font_size = 34
+text = "QUIT"
+flat = true
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
