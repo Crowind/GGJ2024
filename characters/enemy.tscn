@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bt7d6dj4gs6p1"]
+[gd_scene load_steps=12 format=3 uid="uid://bt7d6dj4gs6p1"]
 
 [ext_resource type="Script" path="res://characters/enemy.gd" id="1_d8gr1"]
 [ext_resource type="Material" uid="uid://bxw08oevapx4v" path="res://gfx/materials/enemy_material_gradient.tres" id="2_1waad"]
-[ext_resource type="SpriteFrames" path="res://characters/animations/empty_sprite_frames.tres" id="2_7sv8p"]
+[ext_resource type="SpriteFrames" uid="uid://meihwoiibn0d" path="res://characters/animations/empty_sprite_frames.tres" id="2_7sv8p"]
 [ext_resource type="Script" path="res://characters/subnodes/character_stats.gd" id="3_kn0fj"]
 [ext_resource type="Texture2D" uid="uid://daqey07t1u3k7" path="res://gfx/vfx/Particles_AH.png" id="4_xduwl"]
 [ext_resource type="Texture2D" uid="uid://1wmulwc7v4kq" path="res://gfx/assets/shadow.png" id="5_cjc52"]
@@ -29,6 +29,9 @@ scale_max = 0.6
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mhx6p"]
 radius = 270.897
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mep7k"]
+size = Vector2(28, 33.75)
 
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 2
@@ -67,6 +70,7 @@ script = ExtResource("3_kn0fj")
 type = "Normal"
 
 [node name="LaughContagionArea2D" type="Area2D" parent="."]
+input_pickable = false
 metadata/_edit_lock_ = true
 
 [node name="LaughContagionCollisionShape2D" type="CollisionShape2D" parent="LaughContagionArea2D"]
@@ -106,6 +110,8 @@ scale = Vector2(0.5625, 0.5)
 texture = ExtResource("5_cjc52")
 
 [node name="CharacterDetectionArea2D" type="Area2D" parent="."]
+visible = false
+input_pickable = false
 monitoring = false
 monitorable = false
 
@@ -113,6 +119,14 @@ monitorable = false
 visible = false
 shape = SubResource("CircleShape2D_mhx6p")
 debug_color = Color(0.0470588, 0.701961, 0, 0.419608)
+
+[node name="MousePickingArea2D" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MousePickingArea2D"]
+position = Vector2(0, -12.875)
+shape = SubResource("RectangleShape2D_mep7k")
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="path_changed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_path_changed"]
@@ -124,3 +138,4 @@ debug_color = Color(0.0470588, 0.701961, 0, 0.419608)
 [connection signal="timeout" from="NoHappinessAddTimer" to="." method="_on_no_happiness_add_timer_timeout"]
 [connection signal="timeout" from="ChaseCharacterTimer" to="." method="_on_chase_character_timer_timeout"]
 [connection signal="timeout" from="FightTimer" to="." method="_on_fight_timer_timeout"]
+[connection signal="input_event" from="MousePickingArea2D" to="." method="_on_mouse_picking_area_2d_input_event"]

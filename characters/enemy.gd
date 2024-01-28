@@ -65,6 +65,9 @@ func _ready():
 
 	animated_sprite.material = animated_sprite.material.duplicate(true)
 
+
+
+
 func _process(delta: float):
 	# basic happiness consumption
 	if current_state != State.Smiling:
@@ -83,9 +86,7 @@ func _process(delta: float):
 			fight_timer.start(fight_duration)
 
 	var linear_happiness = inverse_lerp(stats.min_happiness,stats.happiness_treshold,stats.happiness)
-	
 	linear_happiness = clampf(linear_happiness,-0.2,1.5)
-	
 	(animated_sprite.material as ShaderMaterial).set_shader_parameter("saturation", linear_happiness)
 
 
@@ -311,3 +312,8 @@ func _on_fight_timer_timeout():
 	current_state = State.Idle
 	speed = stats.speed_enum_to_speed()
 	animated_sprite.self_modulate = Color.WHITE
+
+
+func _on_mouse_picking_area_2d_input_event(viewport: Viewport, event: InputEvent, shape_idx: int):
+	if event.is_action_pressed("joke_deploy"):
+		stats.happiness += stats.happines_damage_on_click

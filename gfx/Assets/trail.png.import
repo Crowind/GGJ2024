@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://frp84jtkco1s"
-path="res://.godot/imported/trail.png-977396dfb92bdb022eeddc65a32008da.ctex"
+path="res://.godot/imported/trail.png-fe78c10f5e772aed6b92f7eb1bf7c092.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/assets/trail.png"
-dest_files=["res://.godot/imported/trail.png-977396dfb92bdb022eeddc65a32008da.ctex"]
+source_file="res://gfx/Assets/trail.png"
+dest_files=["res://.godot/imported/trail.png-fe78c10f5e772aed6b92f7eb1bf7c092.ctex"]
 
 [params]
 
