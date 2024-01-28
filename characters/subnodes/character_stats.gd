@@ -25,6 +25,7 @@ enum Speed
 @export var movement_speed: Speed
 @export var happines_to_add_on_joke_seen = 2
 @export var happines_damage_on_fight = -2
+@export var happines_damage_on_click = -1
 @export var happiness_consumption_per_sec = -0.1
 
 var happiness: float:
