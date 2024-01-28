@@ -6,21 +6,24 @@
 [ext_resource type="Texture2D" uid="uid://beglfdmptwcrf" path="res://gfx/assets/UI/pixel_jack.png" id="3_tcrk2"]
 [ext_resource type="Texture2D" uid="uid://dnyd7kpeo30fn" path="res://gfx/assets/UI/pixel_poo.png" id="4_55qe8"]
 [ext_resource type="Texture2D" uid="uid://cb7oweskt2ayl" path="res://gfx/assets/UI/pixel_manhole.png" id="5_wtimf"]
-[ext_resource type="Shader" path="res://gfx/shaders/hud_cooldown.gdshader" id="6_4c705"]
+[ext_resource type="Shader" path="res://gfx/Shaders/hud_cooldown.gdshader" id="6_ltlts"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_asyqn"]
-shader = ExtResource("6_4c705")
-shader_parameter/fill = 1.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0e67"]
+shader = ExtResource("6_ltlts")
+shader_parameter/fill = 1.1
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("text")]
 script = ExtResource("1_ljx8e")
 icon_banana = ExtResource("2_f3rro")
 icon_jack = ExtResource("3_tcrk2")
 icon_poo = ExtResource("4_55qe8")
 icon_manhole = ExtResource("5_wtimf")
+text = NodePath("RichTextLabel")
+game_duration = 30.0
+cooldown_duration = 3000.0
 
 [node name="BG" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_asyqn")
+material = SubResource("ShaderMaterial_s0e67")
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -52,3 +55,19 @@ grow_vertical = 2
 texture = ExtResource("2_f3rro")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 318.0
+offset_top = -265.0
+offset_right = 476.88
+offset_bottom = -183.33
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 56
+text = "30.00"
+autowrap_mode = 0

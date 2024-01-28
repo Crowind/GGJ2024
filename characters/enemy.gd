@@ -15,6 +15,7 @@ var speed = 100.0
 @onready var laugh_contagion_collision: CollisionShape2D = $LaughContagionArea2D/LaughContagionCollisionShape2D
 @onready var laugh_particles: GPUParticles2D = $LaughParticles
 @onready var character_detection_area: Area2D = $CharacterDetectionArea2D
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var tile_map: TileMap
 var min_rand: Vector2
@@ -239,6 +240,7 @@ func apply_laugh(laugh_value: float, smile_duration: float) -> bool:
 		if stats.add_happiness(laugh_value):
 			_stop_immediately()
 			current_state = State.Smiling
+			audio_player.play()
 			animated_sprite.play("smile")
 			change_state_timer.start(smile_duration)
 			laugh_contagion_disabled = false

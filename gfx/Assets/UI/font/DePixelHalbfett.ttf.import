@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dmnw0d1un63mm"
-path="res://.godot/imported/DePixelHalbfett.ttf-ecd5ce28bd58171996c075535d4396d2.fontdata"
+path="res://.godot/imported/DePixelHalbfett.ttf-8043a8b029a5dfb2a0d263a9534f5568.fontdata"
 
 [deps]
 
-source_file="res://gfx/Assets/UI/font/DePixelHalbfett.ttf"
-dest_files=["res://.godot/imported/DePixelHalbfett.ttf-ecd5ce28bd58171996c075535d4396d2.fontdata"]
+source_file="res://gfx/assets/UI/font/DePixelHalbfett.ttf"
+dest_files=["res://.godot/imported/DePixelHalbfett.ttf-8043a8b029a5dfb2a0d263a9534f5568.fontdata"]
 
 [params]
 

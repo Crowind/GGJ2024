@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkouapabwpqkh"]
+[gd_scene load_steps=11 format=3 uid="uid://dkouapabwpqkh"]
 
 [ext_resource type="PackedScene" uid="uid://c11p23vtdxl1o" path="res://jokes/base_joke.tscn" id="1_wxaw4"]
-[ext_resource type="Texture2D" uid="uid://ck3fwmjwg2ear" path="res://gfx/Assets/Tile_actions.png" id="2_jhu54"]
+[ext_resource type="AudioStream" uid="uid://btm8w6xddjhlu" path="res://audio/sfx/Jack.wav" id="2_237jq"]
+[ext_resource type="Texture2D" uid="uid://ck3fwmjwg2ear" path="res://gfx/assets/Tile_actions.png" id="2_jhu54"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vnrm"]
 atlas = ExtResource("2_jhu54")
@@ -54,6 +55,9 @@ radius = 101.71
 z_index = 2
 type = 3
 animation_to_play = "jack_in_a_box"
+joke_lifetime = 25.0
+smile_duration = 2.0
+triggered_audio = ExtResource("2_237jq")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 z_index = 2

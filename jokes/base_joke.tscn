@@ -5,6 +5,8 @@
 [node name="Joke" type="Area2D"]
 y_sort_enabled = true
 script = ExtResource("1_vdftl")
+type = null
+animation_to_play = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
@@ -19,6 +21,8 @@ metadata/_edit_lock_ = true
 debug_color = Color(0.682353, 0.701961, 0, 0.419608)
 
 [node name="JokeLifeTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
