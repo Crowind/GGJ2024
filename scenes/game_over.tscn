@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8o2c81gnhpgg"]
+
+[ext_resource type="Texture2D" uid="uid://e174e57nr07y" path="res://gfx/assets/UI/main menu/menu.png" id="1_vbotk"]
+[ext_resource type="Texture2D" uid="uid://dygqmyfd8dcr0" path="res://gfx/assets/UI/main menu/bara.png" id="2_44fgq"]
+
+[sub_resource type="Environment" id="Environment_fddlo"]
+background_mode = 3
+background_color = Color(0.439216, 0.141176, 0, 1)
+background_energy_multiplier = 0.58
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 3.22
+glow_strength = 0.91
+glow_bloom = 0.1
+glow_blend_mode = 0
+glow_hdr_threshold = 0.7
+glow_hdr_scale = 0.14
+
+[node name="GameOver" type="Node2D"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 960.0
+offset_bottom = 544.0
+
+[node name="Fondo" type="Sprite2D" parent="CenterContainer"]
+position = Vector2(481.944, 270)
+scale = Vector2(0.504225, 0.514815)
+texture = ExtResource("1_vbotk")
+
+[node name="Bara" type="Sprite2D" parent="CenterContainer"]
+position = Vector2(456, 256)
+texture = ExtResource("2_44fgq")
+
+[node name="TextEdit" type="TextEdit" parent="CenterContainer"]
+layout_mode = 2
+text = "YOU WON"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fddlo")

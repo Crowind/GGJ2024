@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cglr2li4ml0xn"]
+[gd_scene load_steps=8 format=3 uid="uid://cglr2li4ml0xn"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_bjnjt"]
 [ext_resource type="Texture2D" uid="uid://cinnuplppwvpl" path="res://gfx/Assets/UI/main menu/fondo.png" id="2_mrh6b"]
 [ext_resource type="Texture2D" uid="uid://dygqmyfd8dcr0" path="res://gfx/Assets/UI/main menu/bara.png" id="3_n2c8d"]
 [ext_resource type="Texture2D" uid="uid://cx6q0vhbxuea" path="res://gfx/Assets/UI/main menu/titolo.png" id="4_wthbh"]
 [ext_resource type="FontFile" uid="uid://dmnw0d1un63mm" path="res://gfx/Assets/UI/font/DePixelHalbfett.ttf" id="5_ewd8i"]
+[ext_resource type="AudioStream" uid="uid://c31o7ofn2wtc1" path="res://audio/CITY ST.wav" id="6_kx3nj"]
 
 [sub_resource type="Theme" id="Theme_tuhm7"]
 default_font = ExtResource("5_ewd8i")
@@ -19,6 +20,7 @@ grow_vertical = 2
 script = ExtResource("1_bjnjt")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
 offset_right = 960.0
 offset_bottom = 544.0
 
@@ -59,6 +61,10 @@ theme_override_colors/font_color = Color(0.882353, 0.764706, 0.584314, 1)
 theme_override_font_sizes/font_size = 34
 text = "QUIT"
 flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_kx3nj")
+autoplay = true
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
